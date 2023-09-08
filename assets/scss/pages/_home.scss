@@ -1,0 +1,72 @@
+// HERO CONTAINER
+.hero_container {
+    height: calc(100vh - 72px);
+    background-image: url(/public/img/remedes-naturel-medicament-gingembre-ail.jpg);
+    background-size: cover;
+}
+
+.hero_container_element {
+    width: 540px;
+    height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+    h1{
+        color: $primary-color-golden-darken;
+    }
+    p {
+        font-size: 20px;
+    }
+    a {
+        width: 150px;
+    }
+}
+
+// SEARCH CONTAINER
+
+.search_container{
+    margin: 40px 80px;
+}
+
+.search_card_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .search_card_container-item {
+        width: 350px;
+        height: 294px;
+        background-color: $primary-color-golden-light;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        .search_card_container-item-text{
+            align-items: start;
+            p {
+                padding-bottom: 50px;
+            }
+            a {
+                color: $secondary-color-green-darken;
+            }
+        }
+    }
+}
+
+// ARTICLE CONTAINER
+
+
+// MY STORY CONTAINER
+
+
+// NEWSLETTER CONTAINER
+
+
+
