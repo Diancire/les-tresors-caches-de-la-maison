@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Les Trésors Cachés de la Maison{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
         {% endblock %}
 
         {% block javascripts %}
@@ -13,6 +14,27 @@
         {% endblock %}
     </head>
     <body>
+    <header id="header">
+        <nav class="navbar_container">
+            <ul class="navbar_container_element">
+                <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+            </ul>
+            <div class="logo">
+                <img src="{{ asset('img/logo-les-tresors-caches-de-la-maison.svg' )}}" alt="logo les trésors cachés de la maison">
+            </div>
+            <ul class="navbar_container_element">
+                {% if app.user %}
+                    <li><a href="" class="btn btn-filled-large-logout">Deconnexion</a></li>
+                {% else %}
+                    <li><a href="" class="btn btn_outlined_green">Connexion</a></li>
+                    <li><a href="" class="btn btn_filled_green">Inscription</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
         {% block body %}{% endblock %}
     </body>
 </html>

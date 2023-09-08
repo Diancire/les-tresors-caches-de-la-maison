@@ -1,0 +1,29 @@
+// HEADER
+
+.navbar_container{
+    display: flex;
+    min-height: 72px;
+    background-color: $white;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: $box-shadow-header;
+    .navbar_container_element{
+        display: flex;
+        .navbar_container_element-link {
+            padding: 0 20px;
+            a {
+                transition: 300ms;
+                &:hover{
+                    color: $primary-color-golden;
+                }
+            }
+        }
+    }
+    .logo {
+        width: 70px;
+        height: 41px;
+    }
+    .btn {
+        margin: 0 20px;
+    }
+}
