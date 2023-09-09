@@ -34,6 +34,21 @@
                         <li><a href="" class="btn btn_filled_green">Inscription</a></li>
                     {% endif %}
                 </ul>
+                <div class="navbar_icon_burger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul class="navbar_dropdown_menu">
+                    <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    {% if app.user %}
+                        <li class="navbar_container_element-link"><a href="#">Deconnexion</a></li>
+                    {% else %}
+                        <li class="navbar_container_element-link"><a href="#">Connexion</a></li>
+                        <li class="navbar_container_element-link"><a href="#">Inscription</a></li>
+                    {% endif %}
+                </ul>
             </nav>
         </header>
         {% block body %}{% endblock %}

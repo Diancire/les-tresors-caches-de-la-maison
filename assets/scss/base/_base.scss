@@ -6,18 +6,27 @@ h1 {
     padding: 40px 0;
     font-size: 72px;
     font-weight: 800;
+    @media #{$breakpoint-md} {
+        font-size: 62px;
+    }
 }
 
 h2 {
     padding: 40px 0;
     font-size: 48px;
     font-weight: 800;
+    @media #{$breakpoint-md} {
+        font-size: 38px;
+    }
 }
 
 h3 {
     padding: 20px 0;
     font-size: 28px;
     font-weight: bold;
+    @media #{$breakpoint-md} {
+        font-size: 20px;
+    }
 }
 
 h4 {
