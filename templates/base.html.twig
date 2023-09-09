@@ -2,15 +2,97 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Les Trésors Cachés de la Maison{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
         {% endblock %}
 
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
+        <header id="header">
+            <nav class="navbar_container">
+                <ul class="navbar_container_element">
+                    <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                </ul>
+                <div class="logo">
+                    <img src="{{ asset('img/logo-les-tresors-caches-de-la-maison.svg' )}}" alt="logo les trésors cachés de la maison">
+                </div>
+                <ul class="navbar_container_element">
+                    {% if app.user %}
+                        <li><a href="" class="btn btn-filled-large-logout">Deconnexion</a></li>
+                    {% else %}
+                        <li><a href="" class="btn btn_outlined_green">Connexion</a></li>
+                        <li><a href="" class="btn btn_filled_green">Inscription</a></li>
+                    {% endif %}
+                </ul>
+                <div class="navbar_icon_burger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul class="navbar_dropdown_menu">
+                    <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                    <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    {% if app.user %}
+                        <li class="navbar_container_element-link"><a href="#">Deconnexion</a></li>
+                    {% else %}
+                        <li class="navbar_container_element-link"><a href="#">Connexion</a></li>
+                        <li class="navbar_container_element-link"><a href="#">Inscription</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
+        <footer>
+            <div class="footer_container_top">
+                <div class="footer_container_top-logo-container">
+                    <img src="{{ asset('img/logo-les-tresors-caches-de-la-maison.svg' )}}" alt="logo les trésors cachés de la maison">
+                    <h3>Les Trésors Cachés de la Maison</h3>
+                </div>
+                <div class="footer_container_top-information-container">
+                    <div class="footer_container_top-information-element">
+                        <h3>Accueil</h3>
+                        <ul>
+                            <li><a href="">Blog</a></li>
+                            <li><a href="">Histoire</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_container_top-information-element">
+                        <h3>Blog</h3>
+                        <ul>
+                            <li><a href="">Remèdes Naturelles</a></li>
+                            <li><a href="">Bien-être</a></li>
+                            <li><a href="">Beauté Naturelle</a></li>
+                            <li><a href="">Santé</a></li>
+                            <li><a href="">Nettoyage écologique</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_container_top-information-element">
+                        <h3>Information</h3>
+                        <ul>
+                            <li><a href="">Mentions légales</a></li>
+                            <li><a href="">Conditions générales d’utilisations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_container_bottom">
+                <div class="footer_container_bottom-reserved">© 2023 Les Trésors Cachés de la Maison- Tous droits réservés.</div>
+                <div class="footer_container_bottom-social-networks">
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

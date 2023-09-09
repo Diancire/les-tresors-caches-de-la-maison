@@ -1,0 +1,29 @@
+// Colors
+$white: #FFFFFF;
+$black: #0B0D17;
+
+// Text colors
+$text-gray:#18191F;
+$text-gray-light:#EEEFF4;
+
+// Primary colors
+$primary-color-golden-darken: #D99311;
+$primary-color-golden: #E4B358;
+$primary-color-golden-light: #EFD39F;
+
+// Secondary colors
+$secondary-color-green-darken: #32A65A;
+$secondary-color-green: #6FC08B;
+$secondary-color-green-light: #C1E4CD;
+
+// Background colors
+$background-color-gray: #F7F7F7;
+
+// Font text
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap');
+
+$font-family: 'Inter', sans-serif;
+
+// Box-shadow
+$box-shadow-header:rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+$box-shadow-dropdown: rgba(0, 0, 0, 0.16) 0px 1px 4px;

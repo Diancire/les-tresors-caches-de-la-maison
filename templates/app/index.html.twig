@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Trésors Cachés de la Maison{% endblock %}
+
+{% block body %}
+
+{# HERO #}
+<section class="hero_container">
+    <div class="hero_container_element">
+        <h1>Les Trésors Cachés de la Maison</h1>
+        <p>Explorez les secrets naturels de la maison pour une vie saine et rayonnante.</p>
+        <a href="#" class="btn btn_filled_green">Découvrir le blog</a>
+    </div>
+</section>
+<section class="search_container">
+    <h2>Quels trésors cherchez-vous ?</h2>
+    <div class="search_card_container">
+        <div class="search_card_container-item">
+            <img src="{{ asset('img/icons/icon-remedy-natural.png' )}}" alt="icone remède naturel">
+            <div class="search_card_container-item-text">
+                <h3>Remèdes Naturels</h3>
+                <p>Explorez des remèdes naturels pour une santé équilibrée.</p>
+                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="search_card_container-item">
+            <img src="{{ asset('img/icons/icon-yoga.png' )}}" alt="icône yoga">
+            <div class="search_card_container-item-text">
+                <h3>Bien-Être</h3>
+                <p>Découvrez le bien-être naturel et les pratiques pour une vie harmonieuse.</p>
+                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="search_card_container-item">
+            <img src="{{ asset('img/icons/icon-beauty-products.png' )}}" alt="icône produits de beauté">
+            <div class="search_card_container-item-text">
+                <h3>Beauté Naturelle</h3>
+                <p>Révélez votre beauté authentique avec nos astuces beauté maison.</p>
+                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="search_card_container-item">
+            <img src="{{ asset('img/icons/icon-health.png' )}}" alt="icône santé">
+            <div class="search_card_container-item-text">
+                <h3>Santé</h3>
+                <p>Un guide complet pour une vie saine à la maison.</p>
+                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="search_card_container-item">
+            <img src="{{ asset('img/icons/icon-cleaning.png' )}}" alt="icône outils de nettoyage">
+            <div class="search_card_container-item-text">
+                <h3>Nettoyage Écologique</h3>
+                <p>Des solutions pour un foyer sain et respectueux de l'environnement.</p>
+                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<article class="article_container">
+    <h2>Articles Récents</h2>
+    <div class="article_container_element">
+        <div class="article_container-element-item">
+            <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
+            <div class="article_container_element-item-text">
+                <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Date: 23 Octobre 2023</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellendus inventore rerum quod veritatis commodi aut fugit possimus voluptatibus, doloremque doloribus mollitia vitae, voluptatum nemo porro, laboriosam libero culpa molestias?</p>
+            </div>
+        </div>
+        <div class="article_container-element-item">
+            <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
+            <div class="article_container_element-item-text">
+                <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Date: 23 Octobre 2023</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellendus inventore rerum quod veritatis commodi aut fugit possimus voluptatibus, doloremque doloribus mollitia vitae, voluptatum nemo porro, laboriosam libero culpa molestias?</p>
+            </div>
+        </div>
+    </div>
+</article>
+<article class="my_story_container">
+    <img src="{{ asset('img/femme-au-bord-de-falaise.jpg' )}}" alt="femme au bord de falaise">
+    <div class="my_story_container_text_content">
+        <h2>Notre Histoire</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus placeat minima, numquam vero error quisquam itaque rerum quam odit soluta minus ullam atque esse enim delectus quos dignissimos ut! Nostrum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus placeat minima, numquam vero error quisquam itaque rerum quam odit soluta minus ullam atque esse enim delectus quos dignissimos ut! Nostrum.</p>
+        <a href="">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</article>
+<article class="newsletter_container">
+    <h2>Newsletter</h2>
+    <p>Ne ratez plus aucun trésor caché ! Abonnez-vous à notre newsletter pour recevoir régulièrement des astuces maison, des remèdes naturels, et des secrets pour une vie saine et rayonnante, directement dans votre boîte de réception.</p>
+    <form action="">
+        <label for=""></label>
+        <input type="email" name="" id="" placeholder="Email">
+        <button type="submit">Souscrire</button>
+    </form>
+</article>
+{% endblock %}
