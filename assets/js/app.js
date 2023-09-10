@@ -17,3 +17,21 @@ toggle_btn.onclick = function () {
     const isOpen = dropdown_menu.classList.contains('is-open')
     toggle_btn_icon.classList = isOpen ? "fa fa-xmark" : "fa fa-bars"
 }
+
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+window.addEventListener("scroll", function () {
+  if (document.documentElement.scrollTop > 100) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+
+function scrollToTop() {
+  document.documentElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+scrollToTopBtn.addEventListener("click", scrollToTop);
