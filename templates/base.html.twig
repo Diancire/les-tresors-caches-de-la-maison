@@ -28,10 +28,10 @@
                 </div>
                 <ul class="navbar_container_element">
                     {% if app.user %}
-                        <li><a href="" class="btn btn-filled-large-logout">Deconnexion</a></li>
+                        <li><a href="{{ path('app_logout')}}" class="btn btn-filled-large-logout">Deconnexion</a></li>
                     {% else %}
-                        <li><a href="" class="btn btn_outlined_green">Connexion</a></li>
-                        <li><a href="" class="btn btn_filled_green">Inscription</a></li>
+                        <li><a href="{{ path('app_login')}}" class="btn btn_outlined_green">Connexion</a></li>
+                        <li><a href="{{ path('app_register')}}" class="btn btn_filled_green">Inscription</a></li>
                     {% endif %}
                 </ul>
                 <div class="navbar_icon_burger">
@@ -43,10 +43,10 @@
                     <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
                     {% if app.user %}
-                        <li class="navbar_container_element-link"><a href="#">Deconnexion</a></li>
+                        <li class="navbar_container_element-link"><a href="{{ path('app_logout')}}">Deconnexion</a></li>
                     {% else %}
-                        <li class="navbar_container_element-link"><a href="#">Connexion</a></li>
-                        <li class="navbar_container_element-link"><a href="#">Inscription</a></li>
+                        <li class="navbar_container_element-link"><a href="{{ path('app_login')}}">Connexion</a></li>
+                        <li class="navbar_container_element-link"><a href="{{ path('app_register')}}">Inscription</a></li>
                     {% endif %}
                 </ul>
             </nav>

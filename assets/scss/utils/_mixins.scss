@@ -1,0 +1,6 @@
+@mixin form-input-select($min-width, $min-height, $border-radius, $border){
+    min-width: $min-width;
+    min-height: $min-height;
+    border-radius: $border-radius;
+    border: $border;
+}

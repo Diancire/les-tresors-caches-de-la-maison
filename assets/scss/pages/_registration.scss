@@ -1,0 +1,85 @@
+.registration_container {
+    display: flex;
+    margin: 100px 0;
+    justify-content: space-around;
+        @media #{$breakpoint-md} {
+            margin: 100px 50px;
+        }
+}
+
+.registration_img {
+    border-radius: 45px;
+    width: 600px;
+    height: 800px;
+    @media #{$breakpoint-xl} {
+        display: none;
+    }
+}
+
+.registration_container-title {
+    text-align: center;
+}
+
+.registration_container_form-element {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px;
+}
+
+.registration_container_form-element-input {
+    @include form-input-select(404px, 50px, 8px, 1px solid #ccc);
+    margin-bottom: 50px;
+    padding: 0 10px;
+    width: 100%;
+    @media #{$breakpoint-md} {
+        @include form-input-select(290px, 50px, 8px, 1px solid #ccc);
+    }
+    @media #{$breakpoint-s} {
+        @include form-input-select(180px, 50px, 8px, 1px solid #ccc);
+    }
+    @media #{$breakpoint-xs} {
+        @include form-input-select(100px, 50px, 8px, 1px solid #ccc);
+    }
+}
+
+#registration_form_plainPassword {
+    
+    label {
+        display: none;
+    }
+
+    ul {
+        color: $warning;
+        font-size: 13px;
+        padding-bottom: 10px;
+    }
+}
+#user_plainPassword {
+    
+    label {
+        display: none;
+    }
+}
+
+.registration_container_form-validation-mdp {
+    font-size: 13px;
+    margin-bottom: 30px;
+    p {
+        font-size: 13px;
+        margin: 0;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+}
+
+.registration_container_form-error {
+    color: $warning;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    text-align: center;
+}
