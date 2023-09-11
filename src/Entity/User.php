@@ -11,7 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[ORM\HasLifecycleCallbacks]
+#[UniqueEntity(fields: ['email'], message: 'Cet email existe déjà au sein de l\'application')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -43,6 +44,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $create_at = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $avatar = null;
+
+    #[ORM\PrePersist]
+    public function prePersist()
+    {
+        $this->avatar = 'https://api.dicebear.com/7.x/lorelei-neutral/'. $this->email . '.svg';
+        $this->avatar = 'https://api.dicebear.com/7.x/lorelei-neutral/svg?seed=' . $this->nickname;
+    }
 
     public function getId(): ?Uuid
     {
@@ -158,6 +169,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreateAt(\DateTimeInterface $create_at): static
     {
         $this->create_at = $create_at;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

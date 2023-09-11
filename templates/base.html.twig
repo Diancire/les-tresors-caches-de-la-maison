@@ -28,7 +28,7 @@
                 </div>
                 <ul class="navbar_container_element">
                     {% if app.user %}
-                        <li><a href="{{ path('app_logout')}}" class="btn btn-filled-large-logout">Deconnexion</a></li>
+                        <li><a href="{{ path('app_logout')}}" class="btn btn_filled_red">Deconnexion</a></li>
                     {% else %}
                         <li><a href="{{ path('app_login')}}" class="btn btn_outlined_green">Connexion</a></li>
                         <li><a href="{{ path('app_register')}}" class="btn btn_filled_green">Inscription</a></li>

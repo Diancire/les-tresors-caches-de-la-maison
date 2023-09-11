@@ -1,0 +1,37 @@
+{{ form_start(form) }}
+    <div class="registration_container_form-element">
+        {{ form_label(form.nickname, 'Pseudo') }}
+        {{ form_widget(form.nickname, {
+            'attr': {
+                'class': 'registration_container_form-element-input'
+            }
+        }) }}
+    </div>
+    <div class="registration_container_form-element">
+        {{ form_label(form.first_name, 'Prénom') }}
+        {{ form_widget(form.first_name, {
+            'attr': {
+                'class': 'registration_container_form-element-input'
+            }
+        }) }}
+    </div>
+    <div class="registration_container_form-element">
+        {{ form_label(form.last_name, 'Nom') }}
+        {{ form_widget(form.last_name, {
+            'attr': {
+                'class': 'registration_container_form-element-input'
+            }
+        }) }}
+    </div>
+    <div class="registration_container_form-element">
+        {{ form_label(form.email, 'Email') }}
+        {{ form_widget(form.email, {
+            'attr': {
+                'class': 'registration_container_form-element-input'
+            }
+        }) }}
+    </div>
+    <div class="dashboard_btn_container">
+        <button class="btn btn_filled_green text-align-center">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

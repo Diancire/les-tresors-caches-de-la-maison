@@ -4,3 +4,10 @@
     border-radius: $border-radius;
     border: $border;
 }
+
+
+@mixin card-item($width, $height, $border-radius) {
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+}

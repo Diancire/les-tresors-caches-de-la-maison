@@ -56,3 +56,26 @@ img {
 button {
     border: none;
 }
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: $primary-color-golden-light;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
