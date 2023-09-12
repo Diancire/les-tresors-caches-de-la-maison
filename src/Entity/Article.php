@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[UniqueEntity(fields: ['slug'], message: 'Ce slug existe déjà !')]
 class Article
 {
     #[ORM\Id]
@@ -43,6 +46,11 @@ class Article
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    public function prePersist()
+    {
+        $this->slug = (new Slugify())->slugify($this->title);
     }
 
     public function getId(): ?int
