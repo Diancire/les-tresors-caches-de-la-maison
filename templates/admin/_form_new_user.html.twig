@@ -1,41 +1,41 @@
 {{ form_start(form) }}
-    <div class="registration_container_form-element">
+    <div class="form_container_content-element">
         {{ form_label(form.nickname, 'Pseudo') }}
         {{ form_widget(form.nickname, {
             'attr': {
-                'class': 'registration_container_form-element-input'
+                'class': 'form_container_content-element-input'
             }
         }) }}
     </div>
-    <div class="registration_container_form-element">
+    <div class="form_container_content-element">
         {{ form_label(form.first_name, 'Prénom') }}
         {{ form_widget(form.first_name, {
             'attr': {
-                'class': 'registration_container_form-element-input'
+                'class': 'form_container_content-element-input'
             }
         }) }}
     </div>
-    <div class="registration_container_form-element">
+    <div class="form_container_content-element">
         {{ form_label(form.last_name, 'Nom') }}
         {{ form_widget(form.last_name, {
             'attr': {
-                'class': 'registration_container_form-element-input'
+                'class': 'form_container_content-element-input'
             }
         }) }}
     </div>
-    <div class="registration_container_form-element">
+    <div class="form_container_content-element">
         {{ form_label(form.email, 'Email') }}
         {{ form_widget(form.email, {
             'attr': {
-                'class': 'registration_container_form-element-input'
+                'class': 'form_container_content-element-input'
             }
         }) }}
     </div>
-    <div class="registration_container_form-element">
+    <div class="form_container_content-element">
         {{ form_label(form.password, 'Mot de passe') }}
         {{ form_widget(form.password, {
             }) }}
-        <div class="registration_container_form-validation-mdp">
+        <div class="form_container_content-validation-mdp">
             <p>Votre mot de passe doit contenir 8 caractères minimum:</p>
             <ul>
                 <li>Une lettre majuscule</li>
@@ -44,12 +44,12 @@
                 <li>Un caractère spécial: -+!*$@%_#)</li>
             </ul>
         </div>
-        <div class="registration_container_form-error">
+        <div class="form_container_content-error">
             {{ form_errors(form.password) }}
         </div>
     </div>
-    <div class="registration_container_form-element">
-        <div class="registration_container_form-element-roles">
+    <div class="form_container_content-element">
+        <div class="">
             {{ form_label(form.roles, 'Roles') }}
             <div class="roles">
                 {{ form_widget(form.roles, {

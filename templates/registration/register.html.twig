@@ -6,53 +6,53 @@
 <button id="scrollToTopBtn" class="btn-scroll-to-top">
     <i class="fas fa-arrow-up"></i>
 </button>
-<div class="registration_container">
-    <img src="{{ asset("img/terrasse-maison.jpg") }}" alt="terrase maison" class="registration_img">
-    <div class="registration_container_form">
-        <h1 class="registration_container-title">Bienvenue !</h1>
+<div class="form_container">
+    <img src="{{ asset("img/terrasse-maison.jpg") }}" alt="terrase maison" class="form_img">
+    <div class="form_container_content">
+        <h1 class="form_container-title">Bienvenue !</h1>
     {{ form_errors(registrationForm) }}
     
     {{ form_start(registrationForm) }}
-        <div class="registration_container_form-element">
+        <div class="form_container_content-element">
             {{ form_label(registrationForm.nickname, 'Pseudo') }}
             {{ form_widget(registrationForm.nickname, {
                     'attr': {
-                        'class': 'registration_container_form-element-input'
+                        'class': 'form_container_content-element-input'
                     }
                 }) }}
         </div>
-        <div class="registration_container_form-element">
+        <div class="form_container_content-element">
             {{ form_label(registrationForm.first_name, 'Prénom') }}
             {{ form_widget(registrationForm.first_name, {
                     'attr': {
-                        'class': 'registration_container_form-element-input'
+                        'class': 'form_container_content-element-input'
                     }
                 }) }}
         </div>
-        <div class="registration_container_form-element">
+        <div class="form_container_content-element">
             {{ form_label(registrationForm.last_name, 'Nom') }}
             {{ form_widget(registrationForm.last_name, {
                     'attr': {
-                        'class': 'registration_container_form-element-input'
+                        'class': 'form_container_content-element-input'
                     }
                 }) }}
         </div>
-        <div class="registration_container_form-element">
+        <div class="form_container_content-element">
             {{ form_label(registrationForm.email, 'Email') }}
             {{ form_widget(registrationForm.email, {
                     'attr': {
-                        'class': 'registration_container_form-element-input'
+                        'class': 'form_container_content-element-input'
                     }
                 }) }}
-            <div class="registration_container_form-error">
+            <div class="form_container_content-error">
                 {{ form_errors(registrationForm.email) }}
             </div>
         </div>
-        <div class="registration_container_form-element">
+        <div class="form_container_content-element">
             {{ form_label(registrationForm.plainPassword, 'Mot de passe') }}
             {{ form_widget(registrationForm.plainPassword, {
                 }) }}
-            <div class="registration_container_form-validation-mdp">
+            <div class="form_container_content-validation-mdp">
                 <p>Votre mot de passe doit contenir 8 caractères minimum:</p>
                 <ul>
                     <li>Une lettre majuscule</li>
@@ -61,7 +61,7 @@
                     <li>Un caractère spécial: -+!*$@%_#)</li>
                 </ul>
             </div>
-            <div class="registration_container_form-error">
+            <div class="form_container_content-error">
                 {{ form_errors(registrationForm.plainPassword) }}
             </div>
         </div>

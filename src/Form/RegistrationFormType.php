@@ -47,12 +47,12 @@ class RegistrationFormType extends AbstractType
                 'first_options' => ['label' => '', 
                 'attr' => [
                     'placeholder' => 'Saisissez votre mot de passe',
-                    'class' => 'registration_container_form-element-input']
+                    'class' => 'form_container_content-element-input']
                 ],
                 'second_options' => ['label' => 'Confirmez le mot de passe', 
                     'attr' => [                        
                         'placeholder' => 'Confirmez votre mot de passe',
-                        'class' => 'registration_container_form-element-input']
+                        'class' => 'form_container_content-element-input']
                 ],
                 'invalid_message' => "Les mots de passe ne correspondent pas.",
                 'mapped' => false,
