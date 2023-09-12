@@ -5,16 +5,18 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Form\ChangePasswordFormType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/user')]
 class UserController extends AbstractController
 {
-    #[Route('/', name: 'app_user_index', methods: ['GET'])]
+    #[Route('/mon-espace', name: 'app_user_index', methods: ['GET'])]
     public function index(): Response
     {
         return $this->render('user/index.html.twig');
@@ -74,6 +76,31 @@ class UserController extends AbstractController
             $entityManager->flush();
         }
         $this->addFlash('success', "Votre compte a été supprimé avec succès.");
-        return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_pp', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/{id}/change-password', name: 'app_user_change_password', methods: ['GET', 'POST'])]
+    public function changePassword(Request $request, User $user,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(ChangePasswordFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Le mot de passe a été modifié avec succès !");
+            return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
+        }
+
+        return $this->render('user/change_password.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
     }
 }

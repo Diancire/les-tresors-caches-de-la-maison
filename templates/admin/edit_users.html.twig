@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Dashboard | Modifier l'utilisateur{% endblock %}
 
 {% block body %}
     <button id="scrollToTopBtn" class="btn-scroll-to-top">
@@ -12,8 +12,7 @@
             <h1 class="dashboard_title">Modifier l'utilisateur</h1>
                 {{ include('admin/_form_users.html.twig', {'button_label': 'Modifier'}) }}
             <div class="dashboard_btn_container">
-                {{ include('admin/_delete_form_users.html.twig') }}
-                <a href="{{ path('app_user_show', {'id': app.user.id}) }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+                <a href="{{ path('app_admin_index_user') }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
             </div>
         </div>
 

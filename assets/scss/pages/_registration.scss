@@ -61,6 +61,27 @@
     }
 }
 
+#new_user_password {
+    label {
+        display: none;
+    }
+    ul {
+        color: $red;
+        font-size: 13px;
+        padding-bottom: 10px;
+    }
+}
+
+#change_password_form_password {
+    label {
+        display: none;
+    }
+    ul {
+        color: $red;
+        font-size: 13px;
+        padding-bottom: 10px;
+    }
+}
 .registration_container_form-validation-mdp {
     font-size: 13px;
     margin-bottom: 30px;
@@ -82,4 +103,8 @@
 
 .button-container {
     text-align: center;
+}
+
+#admin_roles label {
+    padding: 10px 15px 0 6px;
 }

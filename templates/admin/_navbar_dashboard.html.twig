@@ -7,7 +7,7 @@
             <a href="{{ path('app_admin_show', {'id': app.user.id}) }}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_show' %}active{% endif %}"><i class="fa-solid fa-user"></i>Mon profil</a>
         </div>   
         <div class="navbar_dashboard_container_element_item">
-            <a href="{{ path('app_admin_index_user')}}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_show' %}active{% endif %}"><i class="fa-solid fa-users"></i>Utilisateurs</a>
+            <a href="{{ path('app_admin_index_user')}}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_index_user' %}active{% endif %}"><i class="fa-solid fa-users"></i>Utilisateurs</a>
         </div>   
     </div>
 </div>

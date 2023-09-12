@@ -3,6 +3,9 @@
 {% block title %}Dashboard | Mon profil{% endblock %}
 
 {% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
 <div class="dashboard_container">
     <button id="scrollToTopBtn" class="btn-scroll-to-top">
         <i class="fas fa-arrow-up"></i>

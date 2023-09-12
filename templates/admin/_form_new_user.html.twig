@@ -31,8 +31,33 @@
             }
         }) }}
     </div>
-    <a class="link-golden-darken" href="{{ path('app_admin_change_password', {'id': app.user.id})}}">Modifier le mot de passe</a>
+    <div class="registration_container_form-element">
+        {{ form_label(form.password, 'Mot de passe') }}
+        {{ form_widget(form.password, {
+            }) }}
+        <div class="registration_container_form-validation-mdp">
+            <p>Votre mot de passe doit contenir 8 caractères minimum:</p>
+            <ul>
+                <li>Une lettre majuscule</li>
+                <li>Une lettre minuscule</li>
+                <li>Un chiffre</li>
+                <li>Un caractère spécial: -+!*$@%_#)</li>
+            </ul>
+        </div>
+        <div class="registration_container_form-error">
+            {{ form_errors(form.password) }}
+        </div>
+    </div>
+    <div class="registration_container_form-element">
+        <div class="registration_container_form-element-roles">
+            {{ form_label(form.roles, 'Roles') }}
+            <div class="roles">
+                {{ form_widget(form.roles, {
+                    }) }}
+            </div>
+        </div>
+    </div>
     <div class="dashboard_btn_container">
-        <button class="btn btn_filled_green text-align-center margin-t-25">{{ button_label|default('Save') }}</button>
+        <button class="btn btn_filled_green text-align-center">{{ button_label|default('Créer') }}</button>
     </div>
 {{ form_end(form) }}

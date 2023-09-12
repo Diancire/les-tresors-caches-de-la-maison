@@ -3,6 +3,9 @@
 {% block title %}Dashboard | Mon espace{% endblock %}
 
 {% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
 <div class="dashboard_container">
     {{ include('admin/_navbar_dashboard.html.twig') }}
     <button id="scrollToTopBtn" class="btn-scroll-to-top">

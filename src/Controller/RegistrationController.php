@@ -33,6 +33,7 @@ class RegistrationController extends AbstractController
             $user->setCreateAt(new DateTime);
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->addFlash('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('app_user_index');

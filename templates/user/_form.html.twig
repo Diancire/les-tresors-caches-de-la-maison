@@ -31,7 +31,8 @@
             }
         }) }}
     </div>
+    <a class="link-golden-darken" href="{{ path('app_user_change_password', {'id': app.user.id})}}">Modifier le mot de passe</a>
     <div class="dashboard_btn_container">
-        <button class="btn btn_filled_green text-align-center">{{ button_label|default('Save') }}</button>
+        <button class="btn btn_filled_green text-align-center margin-t-25">{{ button_label|default('Save') }}</button>
     </div>
 {{ form_end(form) }}

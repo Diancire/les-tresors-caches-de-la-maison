@@ -86,12 +86,20 @@
             @media #{$breakpoint-md} {
                 width: 200px;
             }
+            @media #{$breakpoint-s} {
+                font-size: 11px;
+                width: 150px;
+            }
         }
         td {
             min-width: 300px;
             word-wrap: break-word;
             @media #{$breakpoint-md} {
                 min-width: 200px;
+            }
+            @media #{$breakpoint-s} {
+                font-size: 11px;
+                min-width: 150px;
             }
         }
     }
