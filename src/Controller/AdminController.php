@@ -140,14 +140,14 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('app_app', [], Response::HTTP_SEE_OTHER);
     }
     
-    #[Route('/utilisateurs/{id}', name: 'app_admin_delete_user', methods: ['POST'])]
-    public function deleteUser(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    #[Route("/delete/{id}", name:'admin_crud_delete_user')]
+    public function deleteUser(User $user = null, EntityManagerInterface $manager)
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($user);
-            $entityManager->flush();
+        if ($user) {
+            $manager->remove($user);
+            $manager->flush();
+            $this->addFlash('success', 'Le membre a bien été supprimé !');
         }
-        $this->addFlash('success', "Le membre a bien été supprimé !");
-        return $this->redirectToRoute('app_admin_index_user', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_index_user');
     }
 }

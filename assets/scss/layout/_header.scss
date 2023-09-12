@@ -4,7 +4,8 @@
     display: flex;
     min-height: 72px;
     background-color: $white;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 20px;
     align-items: center;
     box-shadow: $box-shadow-header;
     @media #{$breakpoint-md} {

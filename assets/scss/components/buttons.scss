@@ -28,6 +28,7 @@
     background-color: $red;
     color: $white;
     transition: 300ms;
+    border: 1px solid $red;
     &:hover{
         background-color: $white;
         color: $red;

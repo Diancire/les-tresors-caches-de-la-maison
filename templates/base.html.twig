@@ -18,10 +18,18 @@
         <header id="header">
             <nav class="navbar_container">
                 <ul class="navbar_container_element">
-                    <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
                     <li class="navbar_container_element-link"><a href="#">Blog</a></li>
                     <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        {% if not is_granted('ROLE_ADMIN') %}
+                            <li class="navbar_container_element-link"><a href="{{ path('app_user_index')}}">Mon espace</a></li>
+                        {% endif %}
+                    {% endif %}
                 </ul>
                 <div class="logo">
                     <img src="{{ asset('img/logo-les-tresors-caches-de-la-maison.svg' )}}" alt="logo les trésors cachés de la maison">
@@ -38,10 +46,18 @@
                     <i class="fa fa-bars"></i>
                 </div>
                 <ul class="navbar_dropdown_menu">
-                    <li class="navbar_container_element-link"><a href="#">Accueil</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
                     <li class="navbar_container_element-link"><a href="#">Blog</a></li>
                     <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        {% if not is_granted('ROLE_ADMIN') %}
+                            <li class="navbar_container_element-link"><a href="{{ path('app_user_index')}}">Mon espace</a></li>
+                        {% endif %}
+                    {% endif %}
                     {% if app.user %}
                         <li class="navbar_container_element-link"><a href="{{ path('app_logout')}}">Deconnexion</a></li>
                     {% else %}

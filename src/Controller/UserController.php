@@ -76,7 +76,7 @@ class UserController extends AbstractController
             $entityManager->flush();
         }
         $this->addFlash('success', "Votre compte a été supprimé avec succès.");
-        return $this->redirectToRoute('app_pp', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_app', [], Response::HTTP_SEE_OTHER);
     }
     #[Route('/{id}/change-password', name: 'app_user_change_password', methods: ['GET', 'POST'])]
     public function changePassword(Request $request, User $user,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response

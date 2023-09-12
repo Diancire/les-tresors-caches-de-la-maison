@@ -44,8 +44,12 @@
                 <tr>
                     <th>Modifier/Supprimer</th>
                     <td class="dashboard_table-tbody-delete-edit">
-                        {{ include('admin/_delete_form_users.html.twig') }}/
-                        <a href="{{ path('app_admin_edit_user', {'id': user.id}) }}" class=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a onclick="return confirm('Voulez-vous supprimer ce membre ?')" href="{{ path('admin_crud_delete_user', {'id': user.id}) }}">
+                            <i class="fas fa-trash-alt color-red"></i>
+                        </a>/
+                        <a href="{{ path('app_admin_edit_user', {'id': user.id}) }}" class="">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
