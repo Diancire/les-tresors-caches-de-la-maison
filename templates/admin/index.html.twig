@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Gestion des utilisateurs{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1 class="dashboard_title">Gestion des utilisateurs</h1>
+        <a href="{{ path('app_admin_new_user') }}" class="btn btn_outlined_golden">Créer un nouvel utilisateur</a>
+        <table class="dashboard_table">
+            <tbody class="dashboard_table-tbody">
+            {% for user in users %}
+                <tr>
+                    <th>Pseudo</th>
+                    <td>{{ user.nickname }}</td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ user.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ user.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Date d'enregistrement</th>
+                    <td>{{ user.createAt ? user.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Modifier/Supprimer</th>
+                    <td class="dashboard_table-tbody-delete-edit">
+                        <a onclick="return confirm('Voulez-vous supprimer ce membre ?')" href="{{ path('admin_crud_delete_user', {'id': user.id}) }}">
+                            <i class="fas fa-trash-alt color-red"></i>
+                        </a>/
+                        <a href="{{ path('app_admin_edit_user', {'id': user.id}) }}" class="">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="border-none"></th>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="10">Aucun enregistrement trouvé</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="dashboard_btn_container">
+            <a href="{{ path('app_admin_index') }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

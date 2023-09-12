@@ -1,0 +1,28 @@
+.navbar_dasboard_container {
+    min-width: 250px;
+    box-shadow: $box-shadow-dropdown;
+    padding: 40px 0;
+    @media #{$breakpoint-md} {
+        display: none;
+    }
+}
+.navbar_dashboard_container_element {
+    margin: 0 15px;
+    .navbar_dashboard_container_element_item {
+        padding: 10px;
+        .navbar_dashboard_container_element_item-link {
+            padding: 0 10px;
+            i {
+                width: 20px;
+                height: 20px;
+                padding: 0 10px;
+            }
+        }
+        &:hover{
+            background-color: $primary-color-golden-light;
+        }
+        .active {
+            color: $primary-color-golden-darken;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{{ form_start(form) }}
+    <div class="form_container_content-element">
+        {{ form_label(form.nickname, 'Pseudo') }}
+        {{ form_widget(form.nickname, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <div class="form_container_content-element">
+        {{ form_label(form.first_name, 'Prénom') }}
+        {{ form_widget(form.first_name, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <div class="form_container_content-element">
+        {{ form_label(form.last_name, 'Nom') }}
+        {{ form_widget(form.last_name, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <div class="form_container_content-element">
+        {{ form_label(form.email, 'Email') }}
+        {{ form_widget(form.email, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <a class="link-golden-darken" href="{{ path('app_user_change_password', {'id': app.user.id})}}">Modifier le mot de passe</a>
+    <div class="dashboard_btn_container">
+        <button class="btn btn_filled_green text-align-center margin-t-25">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

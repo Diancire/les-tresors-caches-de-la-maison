@@ -15,12 +15,42 @@
     }
 }
 
+.btn_filled_golden {
+    background-color: $primary-color-golden-darken;
+    color: $white;
+    transition: 300ms;
+    &:hover{
+        background-color: $primary-color-golden-light;
+        color: $primary-color-golden-darken;
+    }
+}
+.btn_filled_red {
+    background-color: $red;
+    color: $white;
+    transition: 300ms;
+    border: 1px solid $red;
+    &:hover{
+        background-color: $white;
+        color: $red;
+    }
+}
+
 .btn_outlined_green{
     background-color: $secondary-color-green-light;
     color: $secondary-color-green-darken;
     transition: 300ms;
     &:hover{
         background-color: $secondary-color-green-darken;
+        color: white;
+    }
+}
+
+.btn_outlined_golden{
+    background-color: $primary-color-golden-light;
+    color: $primary-color-golden-darken;
+    transition: 300ms;
+    &:hover{
+        background-color: $primary-color-golden-darken;
         color: white;
     }
 }
@@ -43,4 +73,9 @@
         height: 30px;
         font-size: 15px;
     }
-  }
+}
+
+.btn_delete {
+    color: $red;
+    background-color: $white;
+}

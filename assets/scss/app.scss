@@ -1,8 +1,14 @@
 @import 'utils/variables';
+@import 'utils/mixins';
 @import 'utils/responsive';
 @import 'base/reset';
 @import 'base/base';
 @import 'components/buttons';
+@import 'components/message_flash';
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/navbar_dashboard';
 @import 'pages/home';
+@import 'pages/form';
+@import 'pages/login';
+@import 'pages/dashboard';

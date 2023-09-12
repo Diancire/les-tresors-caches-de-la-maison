@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Mon espace{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <section class="dashboard_container_content">
+        <h1 class="dashboard_title">Mon espace</h1>
+            <div class="dashboard_card_container">
+                <a class="dashboard_card_content" href="{{ path('app_admin_show', {'id': app.user.id}) }}">
+                    <ul class="dashboard_list">
+                        <li class="dashboard_list-icon"><i class="fa-solid fa-user"></i></li>
+                        <li class="dashboard_list-sub-title">Mon profil</li>
+                        <li class="dashboard_list-text">Visualisez les informations <br> relative à votre compte</li>
+                    </ul>
+                </a>
+                <a class="dashboard_card_content" href="{{ path('app_admin_index_user')}}">
+                    <ul class="dashboard_list">
+                        <li class="dashboard_list-icon"><i class="fa-solid fa-users"></i></li>
+                        <li class="dashboard_list-sub-title">Gestions des utilisateurs</li>
+                        <li class="dashboard_list-text">Visualisez et gérez <br>les informations des utilisateurs</li>
+                    </ul>
+                </a>
+            </div>
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+.flash {
+    padding: 11px 30px;
+    border-radius: 4px;
+    font-weight: 400;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    font-size: 16px;
+    color: #fff;
+    @media #{$breakpoint-s} {
+        padding: 11px 20px;
+        right: 20px;
+        left: 20px;
+        text-align: center;
+    }
+}
+
+.flashy_success {
+    background-color: $secondary-color-green-light;
+    color: $secondary-color-green-darken;
+    border: 1px solid $secondary-color-green-darken;
+}
+
+.flashy_error {
+    background: #F2330F;
+    color: #fff;
+}

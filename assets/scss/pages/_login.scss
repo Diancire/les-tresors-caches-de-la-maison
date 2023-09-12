@@ -1,0 +1,66 @@
+.login_container {
+    display: flex;
+    margin: 100px 0;
+    justify-content: space-around;
+    @media #{$breakpoint-md} {
+        margin: 100px 50px;
+    }
+}
+
+.login_img {
+    border-radius: 45px;
+    width: 600px;
+    height: 600px;
+    @media #{$breakpoint-xl} {
+        display: none;
+    }
+}
+
+.login_container_form-title {
+    text-align: center;
+}
+
+.login_container_form-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.login_container_form-label-password-container {
+    display: flex;
+    flex-direction: column;
+}
+.login_container_form-label-password-link {
+    color: $primary-color-golden;
+    margin-bottom: 10px
+}
+
+.login_container_form-input{
+    @include form-input-select(404px, 50px, 8px, 1px solid #ccc);
+    margin-bottom: 50px;
+    padding: 0 10px;
+    @media #{$breakpoint-md} {
+        @include form-input-select(290px, 50px, 8px, 1px solid #ccc);
+    }
+    @media #{$breakpoint-x} {
+        @include form-input-select(250px, 50px, 8px, 1px solid #ccc);
+    }
+    @media #{$breakpoint-x} {
+        @include form-input-select(100px, 50px, 8px, 1px solid #ccc);
+    }
+}
+
+.button-container {
+    margin: 20px;
+}
+
+.login_text {
+    margin-top: 190px;
+    text-align: center;
+    @media #{$breakpoint-md} {
+        margin-top: 130px;
+    }
+}
+
+.login_text_link{
+    color: $primary-color-golden;
+}
