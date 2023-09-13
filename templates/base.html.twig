@@ -11,6 +11,7 @@
         {% endblock %}
 
         {% block javascripts %}
+            <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>

@@ -65,24 +65,18 @@
 <article class="article_container">
     <h2>Articles Récents</h2>
     <div class="article_container_element">
-        <div class="article_container-element-item">
-            <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
-            <div class="article_container_element-item-text">
-                <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
-                <h3>Lorem ipsum dolor sit amet</h3>
-                <p>Date: 23 Octobre 2023</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellendus inventore rerum quod veritatis commodi aut fugit possimus voluptatibus, doloremque doloribus mollitia vitae, voluptatum nemo porro, laboriosam libero culpa molestias?</p>
+        {% for article in articles %}            
+            <div href="" class="article_container-element-item">
+                <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
+                <div class="article_container_element-item-text">
+                    <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
+                    <h3>{{article.title}}</h3>
+                    <p>Date: {{article.createdAt|date('d F y')}}</p>
+                    <p>{{article.content|u.truncate(160, '...')}}</p>
+                    <a href="" class="link-golden-darken">Lire plus</a>
+                </div>
             </div>
-        </div>
-        <div class="article_container-element-item">
-            <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
-            <div class="article_container_element-item-text">
-                <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
-                <h3>Lorem ipsum dolor sit amet</h3>
-                <p>Date: 23 Octobre 2023</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repellendus inventore rerum quod veritatis commodi aut fugit possimus voluptatibus, doloremque doloribus mollitia vitae, voluptatum nemo porro, laboriosam libero culpa molestias?</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </article>
 <article class="my_story_container">

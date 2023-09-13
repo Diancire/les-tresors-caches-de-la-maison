@@ -105,13 +105,24 @@
     }
     .dashboard_table-tbody-delete-edit {
         a {
-            color: $secondary-color-green-darken;
             i { 
                 width: 20px;
                 height: 20px;
             }
         }
     }
+}
+
+.dashboard_table-desktop {
+    @media #{$breakpoint-l} {
+        display: none;
+    }  
+}
+.dashboard_table-mobile {
+    display: none;
+    @media #{$breakpoint-l} {
+        display: block;
+    }  
 }
 
 .dashboard_btn_container {

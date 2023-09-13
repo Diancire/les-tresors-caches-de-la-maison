@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | {{article.title}}{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1 class="dashboard_title">{{article.title}}</h1>
+        <table class="dashboard_table">
+            <tbody class="dashboard_table-tbody">
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ article.title }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ article.slug }}</td>
+                </tr>
+                <tr>
+                    <th>Contenu</th>
+                    <td>{{ article.content|raw }}</td>
+                </tr>
+                <tr>
+                    <th>Crée le</th>
+                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Modifiée le</th>
+                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="dashboard_btn_container">
+            <a href="" class="btn btn_filled_green">Modifier</a>
+            <a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{path('app_admin_article_delete', {'id': article.id}) }}" class="btn btn_filled_red">
+                Supprimer l'article
+            </a>
+            <a href="{{ path('app_admin_article_index') }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

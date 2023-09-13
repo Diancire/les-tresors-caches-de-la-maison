@@ -8,6 +8,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import '../scss/app.scss';
 import '../js/message_flash';
+import '../js/textarea';
 
 const toggle_btn = document.querySelector('.navbar_icon_burger')
 const toggle_btn_icon = document.querySelector('.navbar_icon_burger i')

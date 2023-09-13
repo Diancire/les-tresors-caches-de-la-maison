@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Créer un article{% endblock %}
+
+{% block body %}
+<button id="scrollToTopBtn" class="btn-scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<div class="dashboard_container">
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1>Créer un article</h1>
+        {{ include('admin_article/_form.html.twig') }}
+        {# {{form(form)}} #}
+        <div class"dashboard_btn_container">
+            <a href="{{ path('app_admin_article_index') }}"class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
