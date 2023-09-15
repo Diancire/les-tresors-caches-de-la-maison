@@ -1,0 +1,19 @@
+.page_error_container {
+    height: calc(100vh - 72px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+
+    .page_error_status-code{
+        font-size: 160px;
+        font-weight: 700;
+        color: $secondary-color-green;
+    }
+
+    .page_error_element{
+        margin: 0 20px;
+    }
+}

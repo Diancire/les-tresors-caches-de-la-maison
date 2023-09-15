@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accès interdit{% endblock %}
+
+{% block body %}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="page_error_container">
+        <p class="page_error_status-code">{{status_code}}</p>
+            <h1><span class="link-orange-vif">Oups ! </span><br> La page que vous recherchez semble interdite</h1>
+            <p>Nous sommes désolés, mais vous n'avez pas accès à cette page. Dirigez-vous vers la page d'accueil.</p>
+            <a href="{{path('app_app')}}" class="btn btn_outlined_green">Retour à l'accueil</a>
+    </div>
+{% endblock %}

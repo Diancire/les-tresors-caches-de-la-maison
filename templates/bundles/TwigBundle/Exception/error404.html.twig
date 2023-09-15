@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page non trouvée{% endblock %}
+
+{% block body %}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="page_error_container">
+        <p class="page_error_status-code">{{status_code}}</p>
+            <h1><span class="color-green">Oups ! </span><br> La page que vous recherchez semble introuvable</h1>
+            <p>La page que vous cherchez n'a pas été trouvée. Dirigez-vous vers la page d'accueil.</p>
+            <a href="{{path('app_app')}}" class="btn btn_outlined_green">Retour à l'accueil</a>
+    </div>
+{% endblock %}
