@@ -59,7 +59,7 @@ p {
     font-size: 16px;
     margin: 10px 0;
     line-height: 1.5;
-    @media #{$breakpoint-md} {
+    @media #{$breakpoint-l} {
         font-size: 14px;
     }
     @media #{$breakpoint-s} {
@@ -112,10 +112,35 @@ tbody tr:hover {
     margin-top: 25px;
 }
 
+.padding-10 {
+    padding: 10px;
+}
+
+.padding-t-25 {
+    padding-top: 25px;
+}
+
+.padding-x-10 {
+    padding: 0 10px;
+}
+
 .border-none {
     border: none;
 }
 
 .color-red {
     color: $red;
+}
+
+.color-blue {
+    color: $blue;
+}
+
+.color-green {
+    color: $secondary-color-green;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
 }

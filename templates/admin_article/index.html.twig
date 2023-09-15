@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Gestion des articles{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1 class="dashboard_title">Gestion des articles</h1>
+        <a href="{{ path('app_admin_article_new')}}" class="btn btn_outlined_golden">Créer un article</a>
+        <table class="table dashboard_table-desktop margin-t-25">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Slug</th>
+                    <th>Contenu</th>
+                    <th>Etat</th>
+                    <th>Image</th>
+                    <th>Crée le</th>
+                    <th>Modifiée le</th>
+                    <th>Voir | Editer | Supprimer </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.slug }}</td>
+                    <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
+                    <td>{{ article.state }}</td>
+                    <td>
+                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
+                        <br>
+                    </td>
+                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_article_show', {'id': article.id}) }}" class="color-blue">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_admin_article_edit', {'id': article.id})}}" class="color-green">
+                            <i class="fas fa-edit fa-lg"></i>
+                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_article/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="dashboard_table dashboard_table-mobile">
+            <tbody class="dashboard_table-tbody">
+            {% for article in articles %}
+                <tr>
+                    <th>Id</th>
+                    <td>{{ article.id }}</td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ article.title }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ article.slug }}</td>
+                </tr>
+                <tr>
+                    <th>Contenu</th>
+                    <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
+                </tr>
+                <tr>
+                    <th>Etat</th>
+                    <td>{{ article.state }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>
+                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Crée le</th>
+                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Modifiée le</th>
+                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Voir | Modifier | Supprimer</th>
+                    <td class="dashboard_table-tbody-delete-edit">
+                        <a href="{{ path('app_admin_article_show', {'id': article.id}) }}" class="color-blue">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_admin_article_edit', {'id': article.id})}}" class="color-green">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_article/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="border-none"></th>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="10">Aucun enregistrement trouvé</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

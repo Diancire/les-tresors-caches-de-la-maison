@@ -116,9 +116,13 @@
             flex-direction: column;
         }
         img {
-            width: 235px;
-            height: 235px;
+            width: 350px;
+            height: 350px;
             object-fit: cover;
+            @media #{$breakpoint-md} {
+                width: 235px;
+                height: 235px;
+            }
             @media #{$breakpoint-small} {
                 width: 100%;
             }

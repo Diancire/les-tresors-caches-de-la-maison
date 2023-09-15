@@ -1,0 +1,8 @@
+<form method="post" action="{{ path('app_admin_article_delete', {'id': article.id}) }}" onsubmit="return confirm('Voulez-vous supprimer cet article ?');" class="display-inline-block">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+    {% if showDeleteIcon %}
+        <button><i class="fas fa-trash-alt color-red"></i></button>
+    {% else %}
+        <button class="btn btn_filled_red">Supprimer</button>
+    {% endif %}
+</form>

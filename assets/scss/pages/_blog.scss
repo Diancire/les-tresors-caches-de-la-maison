@@ -1,0 +1,179 @@
+// HERO CONTAINER
+.blog_hero_container {
+    min-height: 500px;
+    background-image: url(/public/img/goyave-abricot-fleurs.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    h1 {
+        text-align: center;
+        color: $white;
+    }
+}
+
+// BLOG ARTICLE CONTAINER
+.blog_article_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 80px;
+    @media #{$breakpoint-l} {
+        flex-direction: column-reverse;
+    }
+    @media #{$breakpoint-small} {
+        margin: 20px 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+
+}
+
+// .blog_article_container_content {
+
+// }
+
+.blog_article_container_content-text{
+    display: flex;
+    .blog_article_container_content-text-line{
+        border: 1px solid $black;
+        height: 100%;
+        width: 100px;
+        margin: 20px 10px;
+    }
+}
+
+.blog_article_container_content-element {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog_article_container_content-item {
+    display: flex;
+    width: 670px;
+    margin: 50px 25px 50px 0;
+    @media #{$breakpoint-sm} {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        @media #{$breakpoint-sm} {
+            width: 100%;
+        }
+    }
+    .blog_article_container_content-item-text {
+        padding-left: 30px;
+        @media #{$breakpoint-sm} {
+            padding-left: 0;
+        }
+        .blog_article_container_content-item-text-tag {
+            padding: 10px;
+            background-color: $primary-color-golden;
+            width: 150px;
+            color:$white;
+        }
+    }
+}
+
+.blog_article_container_aside {
+    width: 300px;
+    margin-top: 100px;
+    @media #{$breakpoint-l} {
+        width: 100%;
+    }
+}
+
+.blog_article_aside_search_container {
+    background-color: $background-color-gray;
+    padding: 20px;
+    padding: 20px;
+    h2 {
+        padding-top: 0;
+        font-size: 38px;
+    }
+    form {
+        @media #{$breakpoint-l} {
+            display: flex;
+            justify-content: center;
+        }
+        input {
+            border: none;
+            border-bottom: 1px solid $black;
+            background-color: $background-color-gray;
+            @media #{$breakpoint-l} {
+                width: 70%;
+            }
+        }
+        button {
+            background-color: $background-color-gray;
+        }
+    }
+}
+
+.blog_article_aside_filter_container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: $background-color-gray;
+    h2 {
+        padding-top:  0;
+        font-size: 38px;
+    }
+    .blog_article_aside_filter_text {
+        display: flex;
+        flex-wrap: wrap;
+        a {
+            margin: 5px;
+            border: 1px solid $primary-color-golden;
+            padding: 10px;
+            color: $primary-color-golden;
+            &:hover {
+                background-color: $primary-color-golden-light;
+                color: $white;
+            }
+        }
+    }
+    
+}
+
+.blog_article_aside_article_container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: $background-color-gray;
+    h2 {
+        padding-top: 0;
+        font-size: 38px;
+    }
+    .blog_article_aside_article_item {
+        .blog_article_aside_item-tag {
+            padding: 10px;
+            background-color: $primary-color-golden;
+            color: $white;
+            max-width: 150px;
+            text-align: center;
+        }
+        a {
+            &::after {
+                content: "";
+                display: block;
+                border: 1px solid $black;
+                width: 100%;
+                background-color: $black;
+                margin-top: 20px;
+            }
+        }
+    }
+
+}
+
+.blog_article-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
