@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page indisponible{% endblock %}
+
+{% block body %}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="page_error_container">
+        <p class="page_error_status-code">{{status_code}}</p>
+            <h1><span class="link-orange-vif">Oups ! </span><br>Cette page est temporairement indisponible.</h1>
+            <p>Dirigez-vous vers la page d'accueil.</p>
+            <a href="{{path('app_app')}}" class="btn btn_outlined_green">Retour à l'accueil</a>
+    </div>
+{% endblock %}
