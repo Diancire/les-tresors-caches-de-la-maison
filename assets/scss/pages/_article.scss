@@ -1,0 +1,38 @@
+.article_show_container {
+    margin: 40px 80px;
+    @media #{$breakpoint-small} {
+        margin: 20px 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+    .article_show_img-hero {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+.article_show_share{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    p {
+        padding-right: 10px;
+    }
+    a {
+        padding: 0 15px;
+        i {
+            font-size: 30px;
+        }
+        .fa-facebook {
+            color: #135CB6;
+        }
+        .fa-twitter {
+            color: #00ACED;
+        }
+    }
+}
