@@ -23,11 +23,11 @@
                         <p class="blog_article_container_content-item-text-tag">Remèdes Naturels</p>
                         <h3>{{article.title}}</h3>
                         <div class="display-flex">
-                            <p>Date: {{article.createdAt|date('d F y')}}</p>
+                            <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
                             <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>
                         </div>
                         <p>{{article.content|u.truncate(160, '...')|raw}}</p>
-                        <a href="" class="link-golden-darken">Lire plus</a>
+                        <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
                     </div>
                 </div>
             {% endfor %}
