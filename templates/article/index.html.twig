@@ -18,9 +18,11 @@
         <div class="blog_article_container_content-element">
             {% for article in articles %}  
                 <div class="blog_article_container_content-item">
-                    <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                    <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
                     <div class="blog_article_container_content-item-text">
-                        <p class="blog_article_container_content-item-text-tag">Remèdes Naturels</p>
+                        {% for category in article.categories %}
+                            <p class="blog_article_container_content-item-text-tag">{{ category.name }}</p>
+                        {% endfor %}
                         <h3>{{article.title}}</h3>
                         <div class="display-flex">
                             <p>Date: {{article.createdAt|date('d/m/Y')}}</p>

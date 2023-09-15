@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Modifier la categorie{% endblock %}
+
+{% block body %}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="dashboard_container">
+        {{ include('admin/_navbar_dashboard.html.twig') }}
+        <div class="dashboard_container_content">
+            <h1 class="dashboard_title">Modifier la categorie</h1>
+                {{ include('admin_category/_form.html.twig', {'button_label': 'Modifier'}) }}
+            <div class="dashboard_btn_container">
+                {% set showDeleteIcon = false %}
+                {{ include('admin_category/_delete_form.html.twig') }}
+                <a href="{{ path('app_admin_category_show', {'id': category.id}) }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

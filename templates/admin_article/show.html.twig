@@ -20,8 +20,12 @@
                     <td>{{ article.title }}</td>
                 </tr>
                 <tr>
-                    <th>Slug</th>
-                    <td>{{ article.slug }}</td>
+                    <th>Categorie</th>
+                    <td>
+                        {% for category in article.categories %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th>Contenu</th>
@@ -34,17 +38,17 @@
                 <tr>
                     <th>Image</th>
                     <td>
-                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
+                        <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
                         <br>
                     </td>
                 </tr>
                 <tr>
                     <th>Crée le</th>
-                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                    <td>{{ article.createdAt|date('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Modifiée le</th>
-                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                    <td>{{ article.updatedAt|date('d/m/Y') }}</td>
                 </tr>
             </tbody>
         </table>

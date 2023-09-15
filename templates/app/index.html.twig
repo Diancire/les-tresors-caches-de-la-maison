@@ -20,46 +20,16 @@
 <section class="search_container">
     <h2>Quels trésors cherchez-vous ?</h2>
     <div class="search_card_container">
-        <div class="search_card_container-item">
-            <img src="{{ asset('img/icons/icon-remedy-natural.png' )}}" alt="icone remède naturel">
-            <div class="search_card_container-item-text">
-                <h3>Remèdes Naturels</h3>
-                <p>Explorez des remèdes naturels pour une santé équilibrée.</p>
-                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+        {% for category in categories %}  
+            <div class="search_card_container-item">
+                <img src="{{ asset('uploads/images/category/' ~ category.imageName) }}" alt="{{category.imageName}}">
+                <div class="search_card_container-item-text">
+                    <h3>{{category.name}}</h3>
+                    <p>{{category.description}}</p>
+                    <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
-        </div>
-        <div class="search_card_container-item">
-            <img src="{{ asset('img/icons/icon-yoga.png' )}}" alt="icône yoga">
-            <div class="search_card_container-item-text">
-                <h3>Bien-Être</h3>
-                <p>Découvrez le bien-être naturel et les pratiques pour une vie harmonieuse.</p>
-                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="search_card_container-item">
-            <img src="{{ asset('img/icons/icon-beauty-products.png' )}}" alt="icône produits de beauté">
-            <div class="search_card_container-item-text">
-                <h3>Beauté Naturelle</h3>
-                <p>Révélez votre beauté authentique avec nos astuces beauté maison.</p>
-                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="search_card_container-item">
-            <img src="{{ asset('img/icons/icon-health.png' )}}" alt="icône santé">
-            <div class="search_card_container-item-text">
-                <h3>Santé</h3>
-                <p>Un guide complet pour une vie saine à la maison.</p>
-                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="search_card_container-item">
-            <img src="{{ asset('img/icons/icon-cleaning.png' )}}" alt="icône outils de nettoyage">
-            <div class="search_card_container-item-text">
-                <h3>Nettoyage Écologique</h3>
-                <p>Des solutions pour un foyer sain et respectueux de l'environnement.</p>
-                <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 <article class="article_container">
@@ -67,12 +37,14 @@
     <div class="article_container_element">
         {% for article in articles %}            
             <div href="" class="article_container-element-item">
-                <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
                 <div class="article_container_element-item-text">
-                    <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
+                    {% for category in article.categories %}
+                        <p class="article_container_element_item-text-tag">{{ category.name }}</p>
+                    {% endfor %}
                     <h3>{{article.title}}</h3>
                     <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
-                    <p>{{article.content|u.truncate(160, '...')|raw}}</p>
+                    <p>{{article.content|u.truncate(120, '...')|raw}}</p>
                     <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
                 </div>
             </div>

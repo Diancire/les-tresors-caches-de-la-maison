@@ -112,6 +112,10 @@ tbody tr:hover {
     margin-top: 25px;
 }
 
+.margin-b-50 {
+    margin-bottom: 50px;
+}
+
 .padding-10 {
     padding: 10px;
 }
@@ -143,4 +147,11 @@ tbody tr:hover {
 .display-flex {
     display: flex;
     align-items: center;
+}
+
+.image_thumbnail {
+    min-width: 100px;
+    max-height: 100px;
+    margin-bottom: 5px;
+    object-fit: cover;
 }

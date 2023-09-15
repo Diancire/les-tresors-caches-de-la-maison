@@ -6,6 +6,7 @@ use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -32,6 +33,15 @@ class ArticleType extends AbstractType
                 'label' => 'Image',
                 'required' => false,
             ])
+            ->add('categories', EntityType::class, [
+                'class' => 'App\Entity\Category',
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+                'by_reference' => false,
+                'required' => false,
+            ])
+        
             // ->add('updatedAt')
             // ->add('createdAt')
             // ->add('imageName')
