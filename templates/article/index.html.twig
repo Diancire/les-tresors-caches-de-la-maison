@@ -3,4 +3,66 @@
 {% block title %}Blog{% endblock %}
 
 {% block body %}
+<button id="scrollToTopBtn" class="btn-scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<section class="blog_hero_container">
+    <h1>Explorez notre blog riche en astuces, remèdes naturels et conseils pratiques !</h1>
+</section>
+<section class="blog_article_container">
+    <article class="blog_article_container_content">
+        <div class="blog_article_container_content-text">
+            <div class="blog_article_container_content-text-line"></div>
+            <p>Tous les articles</p>
+        </div>
+        <div class="blog_article_container_content-element">
+            {% for article in articles %}  
+                <div class="blog_article_container_content-item">
+                    <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                    <div class="blog_article_container_content-item-text">
+                        <p class="blog_article_container_content-item-text-tag">Remèdes Naturels</p>
+                        <h3>{{article.title}}</h3>
+                        <div class="display-flex">
+                            <p>Date: {{article.createdAt|date('d F y')}}</p>
+                            <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>
+                        </div>
+                        <p>{{article.content|u.truncate(160, '...')|raw}}</p>
+                        <a href="" class="link-golden-darken">Lire plus</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+    <aside class="blog_article_container_aside">
+        <div class="blog_article_aside_search_container">
+            <h2>Recherche</h2>
+            <form action="">
+                <input type="text" placeholder="Recherche..">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="blog_article_aside_filter_container">
+            <h2>Filtres</h2>
+            <div class="blog_article_aside_filter_text">
+                <a href="">Santé</a>
+                <a href="">Beauté Naturelle</a>
+                <a href="">Remèdes Naturelles</a>
+                <a href="">Bien-être</a>
+                <a href="">Nettoyage Écologique</a>
+            </div>
+        </div>
+        <div class="blog_article_aside_article_container">
+            <h2>Derniers Articles</h2>
+            <div class="blog_article_aside_article_item">
+                <p class="blog_article_aside_item-tag">Santé</p>
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil alias odio a rerum, provident doloribus nulla? Quos, ratione suscipit!</p>
+                <a href="" class="link-golden-darken">Lire plus</a>
+            </div>
+        </div>
+    </aside>
+</section>
+<div class="blog_article-pagination">
+    {{ knp_pagination_render(articles) }}
+</div>
 {% endblock %}

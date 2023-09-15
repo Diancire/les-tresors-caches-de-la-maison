@@ -5,6 +5,7 @@
 @import 'base/base';
 @import 'components/buttons';
 @import 'components/message_flash';
+@import 'components/pagination';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/navbar_dashboard';
@@ -12,3 +13,4 @@
 @import 'pages/form';
 @import 'pages/login';
 @import 'pages/dashboard';
+@import 'pages/blog';

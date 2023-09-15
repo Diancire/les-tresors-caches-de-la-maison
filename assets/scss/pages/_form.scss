@@ -82,6 +82,12 @@
         padding-bottom: 10px;
     }
 }
+
+#article_imageFile {
+    margin-bottom: 50px;
+}
+
+
 .form_container_content-validation-mdp {
     font-size: 13px;
     margin-bottom: 30px;
@@ -107,4 +113,10 @@
 
 #admin_roles label {
     padding: 10px 15px 0 6px;
+}
+
+.image_thumbnail {
+    min-width: 270px;
+    max-height: 100px;
+    margin-bottom: 5px;
 }

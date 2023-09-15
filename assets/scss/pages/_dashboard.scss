@@ -114,15 +114,15 @@
 }
 
 .dashboard_table-desktop {
-    @media #{$breakpoint-l} {
+    @media screen and (max-width: 1280px) {
         display: none;
-    }  
+    }
 }
 .dashboard_table-mobile {
     display: none;
-    @media #{$breakpoint-l} {
+    @media screen and (max-width: 1280px) {
         display: block;
-    }  
+    }
 }
 
 .dashboard_btn_container {

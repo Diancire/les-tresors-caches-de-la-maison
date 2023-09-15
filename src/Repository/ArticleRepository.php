@@ -25,7 +25,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
                 ->where('p.state LIKE :state')
-                ->setParameter('state', '%STATE_PUBLISHED%')
+                ->setParameter('state', '%publier%')
                 ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()
                 ->getResult();
@@ -35,7 +35,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
                 ->where('p.state LIKE :state')
-                ->setParameter('state', '%STATE_PUBLISHED%')
+                ->setParameter('state', '%publier%')
                 ->orderBy('p.createdAt', 'DESC')
                 ->setMaxResults($limit)
                 ->getQuery()

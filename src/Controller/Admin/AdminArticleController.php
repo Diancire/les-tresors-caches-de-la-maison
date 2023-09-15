@@ -68,15 +68,15 @@ class AdminArticleController extends AbstractController
             'form' => $form,
         ]);
     }
-
-    #[Route("/{id}", name:'app_admin_article_delete')]
-    public function deleteUser(Article $article = null, EntityManagerInterface $manager)
+    #[Route('/{id}', name: 'app_admin_article_delete', methods: ['POST'])]
+    public function delete(Request $request, Article $article, ArticleRepository $articleRepository, EntityManagerInterface $manager): Response
     {
-        if ($article) {
+        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $manager->remove($article);
             $manager->flush();
             $this->addFlash('success', 'L\'article a bien été supprimé !');
         }
-        return $this->redirectToRoute('app_admin_article_index');
+
+        return $this->redirectToRoute('app_admin_article_index', [], Response::HTTP_SEE_OTHER);
     }
 }

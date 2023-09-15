@@ -8,16 +8,20 @@
         }) }}
     </div>
     <div class="form_container_content-element">
-        {{ form_label(form.content, 'Description') }}
-        {{ form_widget(form.content, {
+        {{ form_label(form.state, 'Etat') }}
+        {{ form_widget(form.state, {
             'attr': {
                 'class': 'form_container_content-element-input'
             }
         }) }}
     </div>
+    <div class="form_container_content-element ">
+        {{ form_label(form.imageFile, 'Image') }}
+        {{ form_widget(form.imageFile) }}
+    </div>
     <div class="form_container_content-element">
-        {{ form_label(form.state, 'Etat') }}
-        {{ form_widget(form.state, {
+        {{ form_label(form.content, 'Description') }}
+        {{ form_widget(form.content, {
             'attr': {
                 'class': 'form_container_content-element-input'
             }

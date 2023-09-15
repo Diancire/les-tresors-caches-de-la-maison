@@ -22,7 +22,7 @@
                     <th>Slug</th>
                     <th>Contenu</th>
                     <th>Etat</th>
-                    {# <th>Image</th> #}
+                    <th>Image</th>
                     <th>Crée le</th>
                     <th>Modifiée le</th>
                     <th>Voir | Editer | Supprimer </th>
@@ -36,7 +36,10 @@
                     <td>{{ article.slug }}</td>
                     <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
                     <td>{{ article.state }}</td>
-                    {# <td>{{ article.image_file }}</td> #}
+                    <td>
+                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
+                        <br>
+                    </td>
                     <td>{{ article.createdAt|date('d F Y') }}</td>
                     <td>{{ article.updatedAt|date('d F Y') }}</td>
                     <td>
@@ -46,9 +49,8 @@
                         <a href="{{ path('app_admin_article_edit', {'id': article.id})}}" class="color-green">
                             <i class="fas fa-edit fa-lg"></i>
                         </a>
-                        <a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{path('app_admin_article_delete', {'id': article.id}) }}">
-                            <i class="fas fa-trash-alt fa-lg color-red"></i>
-                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_article/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}
@@ -77,10 +79,17 @@
                     <th>Contenu</th>
                     <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
                 </tr>
-                {# <tr>
+                <tr>
+                    <th>Etat</th>
+                    <td>{{ article.state }}</td>
+                </tr>
+                <tr>
                     <th>Image</th>
-                    <td>{{ article.imageFile }}</td>
-                </tr> #}
+                    <td>
+                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
+                        <br>
+                    </td>
+                </tr>
                 <tr>
                     <th>Crée le</th>
                     <td>{{ article.createdAt|date('d F Y') }}</td>
@@ -98,9 +107,8 @@
                         <a href="{{ path('app_admin_article_edit', {'id': article.id})}}" class="color-green">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{ path('app_admin_article_delete', {'id': article.id}) }}">
-                            <i class="fas fa-trash-alt color-red"></i>
-                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_article/_delete_form.html.twig') }}
                     </td>
                 </tr>
                 <tr>

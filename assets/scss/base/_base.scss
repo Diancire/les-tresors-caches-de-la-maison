@@ -120,6 +120,10 @@ tbody tr:hover {
     padding-top: 25px;
 }
 
+.padding-x-10 {
+    padding: 0 10px;
+}
+
 .border-none {
     border: none;
 }
@@ -134,4 +138,9 @@ tbody tr:hover {
 
 .color-green {
     color: $secondary-color-green;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
 }

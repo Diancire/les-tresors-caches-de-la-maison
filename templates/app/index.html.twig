@@ -67,12 +67,12 @@
     <div class="article_container_element">
         {% for article in articles %}            
             <div href="" class="article_container-element-item">
-                <img src="{{ asset('img/infusion-de-citron.jpg' )}}" alt="infusion de citron">
+                <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="{{article.imageName}}">
                 <div class="article_container_element-item-text">
                     <p class="article_container_element_item-text-tag">Remèdes Naturels</p>
                     <h3>{{article.title}}</h3>
                     <p>Date: {{article.createdAt|date('d F y')}}</p>
-                    <p>{{article.content|u.truncate(160, '...')}}</p>
+                    <p>{{article.content|u.truncate(160, '...')|raw}}</p>
                     <a href="" class="link-golden-darken">Lire plus</a>
                 </div>
             </div>

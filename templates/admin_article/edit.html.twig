@@ -12,9 +12,8 @@
             <h1 class="dashboard_title">Modifier l'article</h1>
                 {{ include('admin_article/_form.html.twig', {'button_label': 'Modifier'}) }}
             <div class="dashboard_btn_container">
-                <a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{path('app_admin_article_delete', {'id': article.id}) }}" class="btn btn_filled_red">
-                    Supprimer l'article
-                </a>
+                {% set showDeleteIcon = false %}
+                {{ include('admin_article/_delete_form.html.twig') }}
                 <a href="{{ path('app_admin_article_show', {'id': article.id}) }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
             </div>
         </div>
