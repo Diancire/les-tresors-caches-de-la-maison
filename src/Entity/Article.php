@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
@@ -23,10 +25,10 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -50,10 +52,14 @@ class Article
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
+    #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'articles')]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
+        $this->categories = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -188,6 +194,33 @@ class Article
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeArticle($this);
+        }
+
+        return $this;
     }
 
 }
