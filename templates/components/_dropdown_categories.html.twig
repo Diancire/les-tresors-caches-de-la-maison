@@ -1,0 +1,15 @@
+{% if categories is not empty %}
+    <li class="dropdown_categories_menu_container">
+        <a href="{{ path('app_blog')}}">Blog</a>
+        <div class="dropdown_categories_icon_btn">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown_categories_menu">
+            {% for category in categories %}
+                <li class="dropdown_categories_menu-link">
+                    <a href="{{ path('app_category', {slug: category.slug}) }}">{{ category.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endif %}

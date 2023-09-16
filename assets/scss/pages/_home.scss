@@ -116,12 +116,12 @@
             flex-direction: column;
         }
         img {
-            width: 350px;
+            width: 250px;
             height: 350px;
             object-fit: cover;
             @media #{$breakpoint-md} {
                 width: 235px;
-                height: 235px;
+                // height: 235px;
             }
             @media #{$breakpoint-small} {
                 width: 100%;

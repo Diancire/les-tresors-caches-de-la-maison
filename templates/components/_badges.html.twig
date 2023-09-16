@@ -1,0 +1,7 @@
+{% if article.categories %}
+    <div class="badges_container">
+        {% for category in article.categories %}
+            <a href="{{ path('app_category', {slug: category.slug})}}">{{ category.name }}</a>
+        {% endfor %}
+    </div>
+{% endif %}

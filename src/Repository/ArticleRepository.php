@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Article;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\Category;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Article>
@@ -16,21 +19,33 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ArticleRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, private PaginatorInterface $paginatorInterface
+)
     {
         parent::__construct($registry, Article::class);
     }
 
-    public function findPublished()
-    {
-        return $this->createQueryBuilder('p')
-                ->where('p.state LIKE :state')
-                ->setParameter('state', '%publier%')
-                ->orderBy('p.createdAt', 'DESC')
-                ->getQuery()
-                ->getResult();
+    public function findPublished(int $page, ?Category $category = null): PaginationInterface {
+        $data = $this->createQueryBuilder('a')
+            ->where('a.state LIKE :state')
+            ->setParameter('state', '%publier%')
+            ->addOrderBy('a.createdAt', 'DESC');
 
+        if (isset($category)) {
+            $data = $data
+                ->join('a.categories', 'c')
+                ->andWhere(':category IN (c)')
+                ->setParameter('category', $category);
+        }
+        $data->getQuery()
+            ->getResult();
+
+        $posts = $this->paginatorInterface->paginate($data, $page, 1);
+
+        return $posts;
     }
+
+
     public function findPublishedLasted($limit)
     {
         return $this->createQueryBuilder('p')

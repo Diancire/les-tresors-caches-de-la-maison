@@ -20,7 +20,7 @@
             <nav class="navbar_container">
                 <ul class="navbar_container_element">
                     <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
-                    <li class="navbar_container_element-link"><a href="{{ path('app_blog')}}">Blog</a></li>
+                    {% include 'components/_dropdown_categories.html.twig' with {'categories': categories} %}
                     <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
@@ -49,6 +49,11 @@
                 <ul class="navbar_dropdown_menu">
                     <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
                     <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                    {% for category in categories %}
+                        <li class="navbar_container_element-link">
+                            <a href="{{ path('app_category', {slug: category.slug}) }}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
                     <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}

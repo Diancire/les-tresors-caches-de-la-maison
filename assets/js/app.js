@@ -15,11 +15,20 @@ const toggle_btn_icon = document.querySelector('.navbar_icon_burger i')
 const dropdown_menu = document.querySelector('.navbar_dropdown_menu')
 
 toggle_btn.onclick = function () {
-    dropdown_menu.classList.toggle('is-open');
-    const isOpen = dropdown_menu.classList.contains('is-open')
-    toggle_btn_icon.classList = isOpen ? "fa fa-xmark" : "fa fa-bars"
+  dropdown_menu.classList.toggle('is-open');
+  const isOpen = dropdown_menu.classList.contains('is-open')
+  toggle_btn_icon.classList = isOpen ? "fa fa-xmark" : "fa fa-bars"
 }
 
+const toggle_categories_btn = document.querySelector('.dropdown_categories_icon_btn')
+const toggle_categories_btn_icon = document.querySelector('.dropdown_categories_icon_btn i')
+const dropdown_categories_menu = document.querySelector('.dropdown_categories_menu')
+
+toggle_categories_btn.onclick = function () {
+  dropdown_categories_menu.classList.toggle('is-open');
+  const isOpen =  dropdown_categories_menu.classList.contains('is-open')
+  toggle_categories_btn_icon.classList = isOpen ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down" 
+}
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 window.addEventListener("scroll", function () {
   if (document.documentElement.scrollTop > 100) {

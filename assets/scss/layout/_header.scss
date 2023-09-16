@@ -59,7 +59,6 @@
         display:block;
     }
     .navbar_container_element-link {
-        padding: 0.7rem;
         text-align: center;
         transition: 300ms;
         &:hover{
@@ -67,9 +66,10 @@
             color: $white;
         }
         a {
+            padding: 20px 11.2px;
             display: inline-block;
             transition: 300ms;
-            width: 100%;
+            width: auto;
             &:hover{
                 color: $white;
             }
@@ -77,5 +77,5 @@
     }
 }
 .navbar_dropdown_menu.is-open {
-    min-height: 230px;
+    height: auto;
 }
