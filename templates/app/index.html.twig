@@ -22,11 +22,15 @@
     <div class="search_card_container">
         {% for category in categories %}  
             <div class="search_card_container-item">
+            {% if category.imageName is not null %}
                 <img src="{{ asset('uploads/images/category/' ~ category.imageName) }}" alt="{{category.imageName}}">
+            {% else %}
+                <img src="{{ asset('img/naturaliste.png') }}" alt="Image par défaut">
+            {% endif %}
                 <div class="search_card_container-item-text">
                     <h3>{{category.name}}</h3>
                     <p>{{category.description}}</p>
-                    <a href="">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="{{ path('app_category', {slug: category.slug}) }}">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         {% endfor %}
@@ -37,7 +41,11 @@
     <div class="article_container_element">
         {% for article in articles %}            
             <div href="" class="article_container-element-item">
-                <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                {% if article.imageName is not null %}
+                    <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                {% else %}
+                    <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut">
+                {% endif %}
                 <div class="article_container_element-item-text">
                     {% include "components/_badges.html.twig" %}
                     <h3>{{article.title}}</h3>

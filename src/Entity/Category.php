@@ -17,6 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[UniqueEntity(fields: ['slug'], message: 'Ce slug existe déjà !')]
+#[UniqueEntity(fields: ['name'], message: 'Ce nom existe déjà !')]
 #[Vich\Uploadable]
 class Category
 {
@@ -55,6 +56,7 @@ class Category
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
         $this->articles = new ArrayCollection();
     }
 

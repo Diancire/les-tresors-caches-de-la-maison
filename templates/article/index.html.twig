@@ -18,7 +18,11 @@
         <div class="blog_article_container_content-element">
             {% for article in articles %}  
                 <div class="blog_article_container_content-item">
-                    <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                    {% if article.imageName is not null %}
+                        <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                    {% else %}
+                        <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut">          
+                    {% endif %}
                     <div class="blog_article_container_content-item-text">
                         {% include "components/_badges.html.twig" %}
                         <h3>{{article.title}}</h3>

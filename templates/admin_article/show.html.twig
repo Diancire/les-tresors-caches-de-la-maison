@@ -36,10 +36,13 @@
                     <td>{{ article.state }}</td>
                 </tr>
                 <tr>
-                    <th>Image</th>
+                    <th>Image/Télécharger</th>
                     <td>
-                        <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>

@@ -28,6 +28,16 @@
                     <td>{{ category.description|u.truncate(160, '...')|raw }}</td>
                 </tr>
                 <tr>
+                    <th>Image/Télécharger</th>
+                    <td>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
                     <th>Crée le</th>
                     <td>{{ category.createdAt|date('d/m/Y') }}</td>
                 </tr>

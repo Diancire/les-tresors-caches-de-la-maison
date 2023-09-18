@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/article')]
@@ -36,7 +37,7 @@ class AdminArticleController extends AbstractController
             
             $entityManager->persist($article);
             $entityManager->flush();
-            
+            $this->addFlash('success', "L'article a été ajouté avec succès !");
             return $this->redirectToRoute('app_admin_article_index', [], Response::HTTP_SEE_OTHER);
         }
         
@@ -90,5 +91,29 @@ class AdminArticleController extends AbstractController
         return $this->redirectToRoute('app_admin_article_index', [
             'categories' => $categories
         ], Response::HTTP_SEE_OTHER);
+    }
+
+
+    #[Route('/{id}/delete-image', name: 'app_admin_article_delete_image', methods: ['POST'])]
+    public function deleteImage(Article $article, EntityManagerInterface $entityManager, #[Autowire('uploads/images/article')] string $photoDir): Response
+    {
+        $oldImageName = $article->getImageName();
+
+        if ($oldImageName) {
+            $imagePath = $photoDir . '/' . $oldImageName;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        $article->setImageName(null);
+
+        $entityManager->persist($article);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'L\'image a été supprimée avec succès.');
+
+
+        return $this->redirectToRoute('app_admin_article_index');
     }
 }

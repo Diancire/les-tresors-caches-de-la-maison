@@ -41,8 +41,12 @@
                     <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
                     <td>{{ article.state }}</td>
                     <td>
-                        <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                            {{ include('admin_article/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                     <td>{{ article.createdAt|date('d/m/Y') }}</td>
                     <td>{{ article.updatedAt|date('d/m/Y') }}</td>
@@ -94,8 +98,12 @@
                 <tr>
                     <th>Image</th>
                     <td>
-                        <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                            {{ include('admin_article/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>

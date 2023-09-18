@@ -21,7 +21,7 @@
                     <th>Nom</th>
                     <th>Slug</th>
                     <th>Description</th>
-                    <th>Image</th>
+                    <th>Image/Télécharger</th>
                     <th>Crée le</th>
                     <th>Voir | Editer | Supprimer </th>
                 </tr>
@@ -34,8 +34,13 @@
                     <td>{{ category.slug }}</td>
                     <td>{{ category.description }}</td>
                     <td>
-                        <img src="{{ asset('uploads/images/category/' ~ category.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                            {{ include('admin_category/_delete_image_form.html.twig') }}
+
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                     <td>{{ category.createdAt|date('d/m/Y') }}</td>
                     <td>
@@ -72,10 +77,14 @@
                     <td>{{ category.description|u.truncate(160, '...')|raw }}</td>
                 </tr>
                 <tr>
-                    <th>Image</th>
+                    <th>Image/Télécharger</th>
                     <td>
-                        <img src="{{ asset('uploads/images/category/' ~ category.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                            {{ include('admin_category/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
