@@ -74,6 +74,14 @@ class ArticleRepository extends ServiceEntityRepository
                 
 
             }
+            if(!empty($searchData->categories)) {
+                $data = $data
+                    ->join('a.categories', 'c')
+                    ->andWhere('c.id IN (:categories)')
+                    ->setParameter('categories', $searchData->categories);
+                
+
+            }
         
             $data = $data
                 ->getQuery()

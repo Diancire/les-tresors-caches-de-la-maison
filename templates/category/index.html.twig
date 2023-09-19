@@ -18,37 +18,35 @@
             <p>Tous les articles</p>
         </div>
         <div class="blog_article_container_content-element">
-            {% for article in articles %}  
-                <div class="blog_article_container_content-item">
-                    <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
-                    <div class="blog_article_container_content-item-text">
-                        {% include "components/_badges.html.twig" %}
-                        <h4>{{article.title}}</h4>
-                        <div class="display-flex">
-                            <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
-                            <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>
+            {% if articles|length == 0 %}
+                <p>Aucun article de votre recherche a été trouvé.</p>
+            {% else %}
+                {% for article in articles %}  
+                    <div class="blog_article_container_content-item">
+                        {% if article.imageName is not null %}
+                            <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}">
+                        {% else %}
+                            <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut">          
+                        {% endif %}
+                        <div class="blog_article_container_content-item-text">
+                            {% include "components/_badges.html.twig" %}
+                            <h3>{{article.title}}</h3>
+                            <div class="display-flex">
+                                <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
+                                <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>
+                            </div>
+                            <p>{{article.content|u.truncate(160, '...')|raw}}</p>
+                            <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
                         </div>
-                        <p>{{article.content|u.truncate(160, '...')|raw}}</p>
-                        <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% endif %}
         </div>
     </article>
     <aside class="blog_article_container_aside">
         <div class="blog_article_aside_search_container">
             <h3>Recherche</h3>
             {% include "components/_search.html.twig" %}
-        </div>
-        <div class="blog_article_aside_filter_container">
-            <h3>Filtres</h3>
-            <div class="blog_article_aside_filter_text">
-                <a href="">Santé</a>
-                <a href="">Beauté Naturelle</a>
-                <a href="">Remèdes Naturelles</a>
-                <a href="">Bien-être</a>
-                <a href="">Nettoyage Écologique</a>
-            </div>
         </div>
     </aside>
 </section>
