@@ -14,8 +14,45 @@
     <div class="dashboard_container_content">
         <h1 class="dashboard_title">Gestion des utilisateurs</h1>
         <a href="{{ path('app_admin_new_user') }}" class="btn btn_outlined_golden">Créer un nouvel utilisateur</a>
+        <table class="table dashboard_table-desktop margin-t-25">
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Roles</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Date d'enregistrement</th>
+                    <th>Editer | Supprimer </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.nickname }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createAt ? user.createAt|date('d/m/Y H:i:s') : '' }}</td>
+                    <td class="dashboard_table-tbody-delete-edit">
+                        <a href="{{ path('app_admin_edit_user', {'id': user.id}) }}" class="">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="return confirm('Voulez-vous supprimer ce membre ?')" href="{{ path('admin_crud_delete_user', {'id': user.id}) }}">
+                            <i class="fas fa-trash-alt color-red"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">Aucun enregistrement trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
         <table class="dashboard_table">
-            <tbody class="dashboard_table-tbody">
+            <tbody class="dashboard_table-tbody dashboard_table-mobile">
             {% for user in users %}
                 <tr>
                     <th>Pseudo</th>
@@ -39,16 +76,16 @@
                 </tr>
                 <tr>
                     <th>Date d'enregistrement</th>
-                    <td>{{ user.createAt ? user.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ user.createAt ? user.createAt|date('d/m/Y H:i:s') : '' }}</td>
                 </tr>
                 <tr>
-                    <th>Modifier/Supprimer</th>
+                    <th>Editer | Supprimer</th>
                     <td class="dashboard_table-tbody-delete-edit">
-                        <a onclick="return confirm('Voulez-vous supprimer ce membre ?')" href="{{ path('admin_crud_delete_user', {'id': user.id}) }}">
-                            <i class="fas fa-trash-alt color-red"></i>
-                        </a>/
                         <a href="{{ path('app_admin_edit_user', {'id': user.id}) }}" class="">
                             <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="return confirm('Voulez-vous supprimer ce membre ?')" href="{{ path('admin_crud_delete_user', {'id': user.id}) }}">
+                            <i class="fas fa-trash-alt color-red"></i>
                         </a>
                     </td>
                 </tr>
