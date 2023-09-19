@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Model\SearchData;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -40,7 +41,7 @@ class ArticleRepository extends ServiceEntityRepository
         $data->getQuery()
             ->getResult();
 
-        $posts = $this->paginatorInterface->paginate($data, $page, 1);
+        $posts = $this->paginatorInterface->paginate($data, $page, 6);
 
         return $posts;
     }
@@ -56,6 +57,30 @@ class ArticleRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult();
 
+    }
+
+    public function findBySearch(SearchData $searchData) : PaginationInterface
+    {
+        $data = $this->createQueryBuilder('a')
+            ->where('a.state LIKE :state')
+            ->setParameter('state', '%publier%')
+            ->addOrderBy('a.createdAt', 'DESC');
+        
+            if(!empty($searchData->q)) {
+                $data = $data
+                    ->andWhere('a.title LIKE :q')
+                    ->orWhere('a.content LIKE :q')
+                    ->setParameter('q', "%{$searchData->q}%");
+                
+
+            }
+        
+            $data = $data
+                ->getQuery()
+                ->getResult();
+
+            $articles = $this->paginatorInterface->paginate($data, $searchData->page, 6);
+            return $articles;
     }
 
 //    /**

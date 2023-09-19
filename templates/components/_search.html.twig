@@ -1,0 +1,8 @@
+{# <form action="">
+    <input type="text" placeholder="Recherche..">
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form> #}
+{{ form_start(form) }}
+    {{ form_widget(form.q)}}
+    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+{{ form_end(form) }}
