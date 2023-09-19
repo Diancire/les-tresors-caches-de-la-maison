@@ -28,18 +28,25 @@
                         <li class="dashboard_list-text">Visualisez et gérez <br>les informations des utilisateurs</li>
                     </ul>
                 </a>
-                <a class="dashboard_card_content" href="{{ path('app_admin_article_new')}}">
+                {# <a class="dashboard_card_content" href="{{ path('app_admin_article_new')}}">
                     <ul class="dashboard_list">
                         <li class="dashboard_list-icon"><i class="fa-regular fa-note-sticky"></i></li>
                         <li class="dashboard_list-sub-title">Créer un article</li>
                         <li class="dashboard_list-text">Vous souhaitez ajouter un nouvel article</li>
                     </ul>
-                </a>
+                </a> #}
                 <a class="dashboard_card_content" href="{{ path('app_admin_article_index')}}">
                     <ul class="dashboard_list">
                         <li class="dashboard_list-icon"><i class="fa-solid fa-newspaper"></i></li>
                         <li class="dashboard_list-sub-title">Gestions des articles</li>
                         <li class="dashboard_list-text">Visualisez et gérez <br>les informations relative aux articles</li>
+                    </ul>
+                </a>
+                <a class="dashboard_card_content" href="{{ path('app_admin_category_index')}}">
+                    <ul class="dashboard_list">
+                        <li class="dashboard_list-icon"><i class="fa-regular fa-note-sticky"></i></li>
+                        <li class="dashboard_list-sub-title">Gestions des categories</li>
+                        <li class="dashboard_list-text">Visualisez et gérez les informations <br>relative aux categories</li>
                     </ul>
                 </a>
             </div>

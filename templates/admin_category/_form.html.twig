@@ -1,0 +1,32 @@
+{{ form_start(form) }}
+    <div class="form_container_content-element">
+        {{ form_label(form.name, 'Nom') }}
+        {{ form_widget(form.name, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+        <div class="form_container_content-error">
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <div class="form_container_content-element">
+        {{ form_label(form.description, 'Description') }}
+        {{ form_widget(form.description, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <div class="form_container_content-element ">
+        {{ form_label(form.imageFile, 'Image') }}
+        {{ form_widget(form.imageFile) }}
+        <div class="form_container-view-delete">
+            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download>{{ (category.imageName) }}</a>
+        </div>
+    </div>
+    <div class="dashboard_btn_container padding-10">
+        <button class="btn btn_filled_green text-align-center margin-t-25">{{ button_label|default('Créer') }}</button>
+    </div>
+{{ form_end(form) }}
+

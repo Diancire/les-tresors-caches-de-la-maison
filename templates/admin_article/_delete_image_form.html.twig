@@ -1,0 +1,6 @@
+<form method="POST" action="{{ path('app_admin_article_delete_image', {'id': article.id}) }}" onsubmit="return confirm('Voulez-vous supprimer cette image ?');" class="display-inline-block">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete_image' ~ article.id) }}">
+    <button type="submit" class="icon-crosh">
+        <i class="fa-solid fa-circle-xmark"></i>
+    </button>
+</form>

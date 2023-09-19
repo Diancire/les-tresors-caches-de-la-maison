@@ -19,7 +19,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Titre</th>
-                    <th>Slug</th>
+                    <th>Categorie</th>
                     <th>Contenu</th>
                     <th>Etat</th>
                     <th>Image</th>
@@ -33,15 +33,23 @@
                 <tr>
                     <td>{{ article.id }}</td>
                     <td>{{ article.title }}</td>
-                    <td>{{ article.slug }}</td>
+                    <td>
+                        {% for category in article.categories %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </td>
                     <td>{{ article.content|u.truncate(160, '...')|raw }}</td>
                     <td>{{ article.state }}</td>
                     <td>
-                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                            {{ include('admin_article/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
-                    <td>{{ article.createdAt|date('d F Y') }}</td>
-                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                    <td>{{ article.createdAt|date('d/m/Y') }}</td>
+                    <td>{{ article.updatedAt|date('d/m/Y') }}</td>
                     <td>
                         <a href="{{ path('app_admin_article_show', {'id': article.id}) }}" class="color-blue">
                             <i class="fa-solid fa-eye"></i>
@@ -55,7 +63,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="9">no records found</td>
+                    <td colspan="9">Aucun enregistrement trouvé</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -72,8 +80,12 @@
                     <td>{{ article.title }}</td>
                 </tr>
                 <tr>
-                    <th>Slug</th>
-                    <td>{{ article.slug }}</td>
+                    <th>Categorie</th>
+                    <td>
+                        {% for category in article.categories %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th>Contenu</th>
@@ -86,17 +98,21 @@
                 <tr>
                     <th>Image</th>
                     <td>
-                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                            {{ include('admin_article/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <th>Crée le</th>
-                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                    <td>{{ article.createdAt|date('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Modifiée le</th>
-                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                    <td>{{ article.updatedAt|date('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Voir | Modifier | Supprimer</th>

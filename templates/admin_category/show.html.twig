@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | {{category.name}}{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1 class="dashboard_title">{{category.name}}</h1>
+        <table class="dashboard_table">
+            <tbody class="dashboard_table-tbody">
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ category.name }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ category.slug }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ category.description|u.truncate(160, '...')|raw }}</td>
+                </tr>
+                <tr>
+                    <th>Image/Télécharger</th>
+                    <td>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Crée le</th>
+                    <td>{{ category.createdAt|date('d/m/Y') }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="dashboard_btn_container">
+            <a href="{{ path('app_admin_category_edit', {'id': category.id})}}" class="btn btn_filled_green">Modifier</a>
+            {% set showDeleteIcon = false %}
+            {{ include('admin_category/_delete_form.html.twig') }}
+            <a href="{{ path('app_admin_category_index') }}" class="btn btn_outlined_golden"><i class="fa-solid fa-arrow-left-long"></i>  Retour à la page précédente</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

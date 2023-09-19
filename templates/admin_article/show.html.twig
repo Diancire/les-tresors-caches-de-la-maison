@@ -20,8 +20,12 @@
                     <td>{{ article.title }}</td>
                 </tr>
                 <tr>
-                    <th>Slug</th>
-                    <td>{{ article.slug }}</td>
+                    <th>Categorie</th>
+                    <td>
+                        {% for category in article.categories %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th>Contenu</th>
@@ -32,19 +36,22 @@
                     <td>{{ article.state }}</td>
                 </tr>
                 <tr>
-                    <th>Image</th>
+                    <th>Image/Télécharger</th>
                     <td>
-                        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="Image" class="image_thumbnail">
-                        <br>
+                        {% if article.imageName is not null %}
+                            <a href="{{ asset('uploads/images/article/' ~ article.imageName)}}" download class="link-golden-darken">{{ (article.imageName) }}</a>
+                        {% else %}
+                            <a href="{{ asset('img/photo-par-defaut.jpg') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <th>Crée le</th>
-                    <td>{{ article.createdAt|date('d F Y') }}</td>
+                    <td>{{ article.createdAt|date('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Modifiée le</th>
-                    <td>{{ article.updatedAt|date('d F Y') }}</td>
+                    <td>{{ article.updatedAt|date('d/m/Y') }}</td>
                 </tr>
             </tbody>
         </table>

@@ -6,6 +6,10 @@ vich_uploader:
 
     mappings:
        article_thumbnail:
+           uri_prefix: /uploads/images/article
+           upload_destination: '%kernel.project_dir%/public/uploads/images/article'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+       category_thumbnail:
            uri_prefix: /uploads/images
-           upload_destination: '%kernel.project_dir%/public/uploads/images'
+           upload_destination: '%kernel.project_dir%/public/uploads/images/category'
            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

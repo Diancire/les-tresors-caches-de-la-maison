@@ -17,7 +17,11 @@
                 <i class="fa-brands fa-twitter"></i>
             </a>
         </div>
-        <img src="{{ asset('uploads/images/' ~ article.imageName) }}" alt="{{article.imageName}}" class="article_show_img-hero">
+        {% if article.imageName is not null %}
+            <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}" class="article_show_img-hero">
+        {% else %}
+            <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut">
+        {% endif %}
         <div>
             <img src="" alt="">
             <p>Dianciré Diallo</p>

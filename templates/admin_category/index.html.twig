@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard | Gestion des categories{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div class="flash flashy_success">{{ message }}</div>
+{% endfor %}
+<div class="dashboard_container">
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    {{ include('admin/_navbar_dashboard.html.twig') }}
+    <div class="dashboard_container_content">
+        <h1 class="dashboard_title">Gestion des categories</h1>
+        <a href="{{ path('app_admin_category_new')}}" class="btn btn_outlined_golden">Créer une categorie</a>
+        <table class="table dashboard_table-desktop margin-t-25">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Slug</th>
+                    <th>Description</th>
+                    <th>Image/Télécharger</th>
+                    <th>Crée le</th>
+                    <th>Voir | Editer | Supprimer </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.slug }}</td>
+                    <td>{{ category.description }}</td>
+                    <td>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                            {{ include('admin_category/_delete_image_form.html.twig') }}
+
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
+                    </td>
+                    <td>{{ category.createdAt|date('d/m/Y') }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_category_show', {'id': category.id}) }}" class="color-blue">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_admin_category_edit', {'id': category.id})}}" class="color-green">
+                            <i class="fas fa-edit fa-lg"></i>
+                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_category/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">Aucun enregistrement trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="dashboard_table dashboard_table-mobile">
+            <tbody class="dashboard_table-tbody">
+            {% for category in categories %}
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ category.name }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ category.slug }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ category.description|u.truncate(160, '...')|raw }}</td>
+                </tr>
+                <tr>
+                    <th>Image/Télécharger</th>
+                    <td>
+                        {% if category.imageName is not null %}
+                            <a href="{{ asset('uploads/images/category/' ~ category.imageName)}}" download class="link-golden-darken">{{ (category.imageName) }}</a>
+                            {{ include('admin_category/_delete_image_form.html.twig') }}
+                        {% else %}
+                            <a href="{{ asset('img/naturaliste.png') }}" download class="link-golden-darken">Photo par defaut</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Crée le</th>
+                    <td>{{ category.createdAt|date('d/m/Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Voir | Modifier | Supprimer</th>
+                    <td class="dashboard_table-tbody-delete-edit">
+                        <a href="{{ path('app_admin_category_show', {'id': category.id}) }}" class="color-blue">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_admin_category_edit', {'id': category.id})}}" class="color-green">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        {% set showDeleteIcon = true %}
+                        {{ include('admin_category/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="border-none"></th>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="10">Aucun enregistrement trouvé</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

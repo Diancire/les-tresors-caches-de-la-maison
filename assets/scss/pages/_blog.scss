@@ -29,20 +29,43 @@
     @media #{$breakpoint-xs} {
         margin: 5px 10px;
     }
-
+    
 }
 
 // .blog_article_container_content {
+    
+    // }
+    
+    .blog_article_container_content-text{
+        display: flex;
+        .blog_article_container_content-text-line{
+            border: 1px solid $black;
+            height: 100%;
+            width: 100px;
+            margin: 20px 10px;
+        }
+    }
+    
+.blog_article_title-desktop {
+    display: none;
+    @media #{$breakpoint-l} {
+        display: block;
+        margin: 40px 80px 0 80px;
+    }
+    @media #{$breakpoint-small} {
+        margin: 20px 40px 0 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+}
 
-// }
-
-.blog_article_container_content-text{
-    display: flex;
-    .blog_article_container_content-text-line{
-        border: 1px solid $black;
-        height: 100%;
-        width: 100px;
-        margin: 20px 10px;
+.blog_article_title-tablette-mobile {
+    @media #{$breakpoint-l} {
+        display: none;
     }
 }
 
@@ -61,7 +84,7 @@
     }
     
     img {
-        width: 350px;
+        width: 250px;
         height: 350px;
         object-fit: cover;
         @media #{$breakpoint-sm} {
