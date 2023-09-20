@@ -29,6 +29,7 @@
                         <div class="blog_article_container_content-item-text">
                             {% include "components/_badges.html.twig" %}
                             <h3>{{article.title}}</h3>
+                            {% include "components/_like.html.twig" %}
                             <div class="display-flex">
                                 <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
                                 <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>

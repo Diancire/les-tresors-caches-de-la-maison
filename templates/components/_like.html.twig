@@ -1,0 +1,13 @@
+<div class="like">
+	{% if app.user %}
+		<a href="{{ path('app_like', {id: article.id}) }}" data-action="like" data-nb={{ article.likes|length }}>
+	{% endif %}
+            <i class="fa-regular fa-thumbs-up unfilled {{ app.user in article.likes ? '' : 'hidden' }}"></i>
+            <i class="fa-solid fa-thumbs-up filled {{ app.user in article.likes ? 'hidden' : '' }}"></i>
+			<span >{{ article.likes|length }}
+				J'aime</span>
+	{% if app.user %}
+		</a>
+	{% endif %}
+</div>
+

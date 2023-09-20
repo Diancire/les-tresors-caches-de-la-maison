@@ -60,11 +60,15 @@ class Article
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Like::class, orphanRemoval: true)]
+    private Collection $likes;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
         $this->categories = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -236,6 +240,36 @@ class Article
     public function setAuthor(?User $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Like>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Like $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Like $like): static
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getArticle() === $this) {
+                $like->setArticle(null);
+            }
+        }
 
         return $this;
     }

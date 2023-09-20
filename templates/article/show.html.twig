@@ -26,6 +26,7 @@
             <img src="{{ article.author.avatar }}" alt="avatar {{article.author.firstName|capitalize}}">
             <p>{{article.author.firstName|capitalize}} {{article.author.lastName|capitalize}}</p>
         </div>
+        {% include "components/_like.html.twig" %}
         <div>
             <p>Publié le {{article.createdAt|date('d/m/Y')}}</p>
             <div>

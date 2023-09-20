@@ -6,6 +6,9 @@
 {% for message in app.flashes('success') %}
     <div class="flash flashy_success">{{ message }}</div>
 {% endfor %}
+{% for message in app.flashes('info') %}
+    <div class="flash flashy_info">{{ message }}</div>
+{% endfor %}
 {# HERO #}
 <button id="scrollToTopBtn" class="btn-scroll-to-top">
   <i class="fas fa-arrow-up"></i>
@@ -49,6 +52,7 @@
                 <div class="article_container_element-item-text">
                     {% include "components/_badges.html.twig" %}
                     <h3>{{article.title}}</h3>
+                    {% include "components/_like.html.twig" %}
                     <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
                     <p>{{article.content|u.truncate(100, '...')|raw}}</p>
                     <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
