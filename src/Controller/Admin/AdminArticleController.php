@@ -35,6 +35,8 @@ class AdminArticleController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             
+            $user = $this->getUser();
+            $article->setAuthor($user);
             $entityManager->persist($article);
             $entityManager->flush();
             $this->addFlash('success', "L'article a été ajouté avec succès !");

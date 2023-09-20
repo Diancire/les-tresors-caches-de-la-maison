@@ -20,11 +20,11 @@
         {% if article.imageName is not null %}
             <img src="{{ asset('uploads/images/article/' ~ article.imageName) }}" alt="{{article.imageName}}" class="article_show_img-hero">
         {% else %}
-            <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut">
+            <img src="{{ asset('img/photo-par-defaut.jpg') }}" alt="Image par défaut" class="article_show_img-hero">
         {% endif %}
-        <div>
-            <img src="" alt="">
-            <p>Dianciré Diallo</p>
+        <div class="article_show_image_author">
+            <img src="{{ article.author.avatar }}" alt="avatar {{article.author.firstName|capitalize}}">
+            <p>{{article.author.firstName|capitalize}} {{article.author.lastName|capitalize}}</p>
         </div>
         <div>
             <p>Publié le {{article.createdAt|date('d/m/Y')}}</p>
@@ -36,10 +36,10 @@
             <p>{{article.content|raw}}</p>
             <p>Dernière mis à jour le {{article.updatedAt|date('d/m/Y')}}</p>
         </div>
-        <div>
-            <img src="" alt="">
+        <div class="article_show_description_author">
+            <img src="{{ article.author.avatar }}" alt="avatar {{article.author.firstName|capitalize}}">
             <div>
-                <p>Dianciré Diallo</p>
+                <p>{{article.author.firstName|capitalize}} {{article.author.lastName|capitalize}}</p>
                 <p>Je suis Dianciré, la créatrice de ce blog dédié à la découverte des trésors cachés de la maison. Passionnée par les remèdes naturels, la beauté maison et l'entretien écologique, je partage ici mes découvertes et astuces pour une vie plus saine et rayonnante. Rejoignez-moi dans l'exploration de ces trésors de la nature, tout en préservant notre environnement.</p>
             </div>
         </div>
