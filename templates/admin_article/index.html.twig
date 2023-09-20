@@ -19,6 +19,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Titre</th>
+                    <th>Auteur</th>
                     <th>Categorie</th>
                     <th>Contenu</th>
                     <th>Etat</th>
@@ -33,6 +34,7 @@
                 <tr>
                     <td>{{ article.id }}</td>
                     <td>{{ article.title }}</td>
+                    <td>{{ article.author.firstName }} {{ article.author.lastName }}</td>
                     <td>
                         {% for category in article.categories %}
                             {{ category.name }}
@@ -78,6 +80,10 @@
                 <tr>
                     <th>Titre</th>
                     <td>{{ article.title }}</td>
+                </tr>
+                <tr>
+                    <th>Auteur</th>
+                    <td>{{ article.author.firstName }} {{ article.author.lastName }}</td>
                 </tr>
                 <tr>
                     <th>Categorie</th>
