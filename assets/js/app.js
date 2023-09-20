@@ -9,6 +9,7 @@
 import '../scss/app.scss';
 import '../js/message_flash';
 import '../js/textarea';
+import '../js/like';
 
 const toggle_btn = document.querySelector('.navbar_icon_burger')
 const toggle_btn_icon = document.querySelector('.navbar_icon_burger i')
