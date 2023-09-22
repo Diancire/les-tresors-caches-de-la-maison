@@ -32,7 +32,7 @@
                             {% include "components/_like.html.twig" %}
                             <div class="display-flex">
                                 <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
-                                <div class="padding-x-10"><i class="fa-solid fa-comment"></i></div>
+                                <div class="padding-x-10"><i class="fa-solid fa-comment"></i> {{ article.comments|length }}</div>
                             </div>
                             <p>{{article.content|u.truncate(160, '...')|raw}}</p>
                             <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
@@ -49,12 +49,20 @@
         </div>
         <div class="blog_article_aside_article_container">
             <h2>Derniers Articles</h2>
+            {% set latestArticles = articles|slice(0, 2) %}
+            {% for article in latestArticles %}  
             <div class="blog_article_aside_article_item">
-                <p class="blog_article_aside_item-tag">Santé</p>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil alias odio a rerum, provident doloribus nulla? Quos, ratione suscipit!</p>
-                <a href="" class="link-golden-darken">Lire plus</a>
+                {% include "components/_badges.html.twig" %}
+                <h3>{{article.title}}</h3>
+                {% include "components/_like.html.twig" %}
+                <div class="display-flex">
+                    <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
+                    <div class="padding-x-10"><i class="fa-solid fa-comment"></i> {{ article.comments|length }}</div>
+                </div>
+                <p>{{article.content|u.truncate(160, '...')|raw}}</p>
+                <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken link_read_more">Lire plus</a>
             </div>
+            {% endfor %}
         </div>
     </aside>
 </section>

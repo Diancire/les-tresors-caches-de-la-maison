@@ -102,6 +102,9 @@
             width: 150px;
             color:$white;
         }
+        .fa-comment {
+            color: $primary-color-golden;
+        }
     }
 }
 
@@ -164,7 +167,7 @@
             max-width: 150px;
             text-align: center;
         }
-        a {
+        .link_read_more {
             &::after {
                 content: "";
                 display: block;
@@ -173,6 +176,12 @@
                 background-color: $black;
                 margin-top: 20px;
             }
+        }
+        p {
+            word-wrap: break-word;
+        }
+        .fa-comment {
+            color: $primary-color-golden;
         }
     }
 

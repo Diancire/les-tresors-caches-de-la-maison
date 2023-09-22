@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\SearchType;
+use App\Form\CommentType;
 use App\Model\SearchData;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,16 +42,33 @@ class ArticleController extends AbstractController
         return $this->render('article/index.html.twig', [
             'articles' => $articles,
             'categories' => $categories, 
-            'form' => $form
+            'form' => $form,
         ]);
     }
-    #[Route('/blog/{slug}', name: 'app_blog_show')]
-    public function show(Article $article, CategoryRepository $categoryRepository): Response
+    #[Route('/blog/{slug}', name: 'app_blog_show', methods: ['GET', 'POST'])]
+    public function show(Article $article, CategoryRepository $categoryRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
+        $comment = new Comment();
+        if($this->getUser()) {
+            $comment->setAuthor($this->getUser());
+        }
+        $comment->setArticle($article);
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            $this->addFlash('success', "Votre commentaire a été ajouté avec succès !");
+
+            return $this->redirectToRoute('app_blog_show', ['slug' => $article->getSlug()]);
+        }
+
         $categories = $categoryRepository->findAll();
         return $this->render('article/show.html.twig', [
             'article' => $article,
-            'categories' => $categories
+            'categories' => $categories, 
+            'form' => $form
         ]);
     }
 }

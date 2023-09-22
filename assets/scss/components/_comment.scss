@@ -1,0 +1,35 @@
+.article_show_comments_element-view {
+    margin-bottom: 10px;
+    box-shadow: $box-shadow-dropdown;
+    padding: 30px;
+
+    p {
+        word-break: break-word;
+    }
+}
+
+.article_show_comments_element-description-author {
+    display: flex;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    .article_show_comments_element-description-author-text {
+        padding: 5px 0 5px 10px;
+        h3 {
+            padding: 0;
+        }
+        p {
+            margin: 0;
+            font-size: 14px;
+            color: #7B7485;
+        }
+    }
+}
+
+.form_comment_delete {
+    text-align: end;
+    button {
+        background-color: $white;
+    }
+}
