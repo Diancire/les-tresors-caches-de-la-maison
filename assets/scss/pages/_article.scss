@@ -55,21 +55,21 @@
 }
 
 .article_show_comments{
-    margin: 0 200px;
+    margin: 50px 200px;
     @media #{$breakpoint-xl} {
-        margin: 0 150px;
+        margin: 50px 150px;
     }
     @media #{$breakpoint-l} {
-        margin: 0 130px;
+        margin: 50px 130px;
     }
     @media #{$breakpoint-x} {
-        margin: 0 110px;
+        margin: 50px 110px;
     }
     @media #{$breakpoint-md} {
-        margin: 0 90px;
+        margin: 50px 90px;
     }
     @media #{$breakpoint-sm} {
-        margin: 0 60px;
+        margin: 50px 60px;
     }
     @media #{$breakpoint-small} {
         margin: 0;
@@ -77,16 +77,20 @@
 }
 
 .article_show_description_author {
+    margin: 40px 0;
     display: flex;
     img {
         width: 50px;
         height: 50px;
         padding-right: 10px;
     }
+    h4 {
+        padding-bottom: 0;
+    }
 }
 
 .article_show_comments-form {
-    margin-top: 50px;
+    margin-top: 20px;
     form {
         display: flex;
         flex-direction: column;

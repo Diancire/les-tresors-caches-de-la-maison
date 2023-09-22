@@ -118,7 +118,6 @@
             object-fit: cover;
             @media #{$breakpoint-md} {
                 width: 235px;
-                // height: 235px;
             }
             @media #{$breakpoint-small} {
                 width: 100%;
@@ -128,6 +127,9 @@
             padding-left: 30px;
             @media #{$breakpoint-small} {
                 padding: 20px 0 0 0;
+            }
+            .fa-comment {
+                color: $primary-color-golden;
             }
             .article_container_element_item-text-tag {
                 padding: 10px;
