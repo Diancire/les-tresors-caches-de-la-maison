@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Les Trésors Cachés de la Maison{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="description" content="Bienvenue sur « Les Trésors Cachés de la Maison », un projet dédié à la redécouverte des richesses et des savoir-faire traditionnels dans le domaine des remèdes naturels. Découvrez nos astuces pratiques, recettes authentiques, conseils pour la santé, la beauté et des solutions pour une maison plus verte. Rejoignez notre communauté passionnée et engagée pour un mode de vie plus sain et respectueux de l'environnement. Explorez l'art du fait maison, de la débrouillardise et de la créativité, inspiré par nos grands-mères et grands-pères.">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon_io/apple-touch-icon.png')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon_io/favicon-32x32.png')}}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon_io/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{ asset('/favicon_io/site.webmanifest')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -84,7 +88,7 @@
                     <div class="footer_container_top-information-element">
                         <h3>Accueil</h3>
                         <ul>
-                            <li><a href="">Blog</a></li>
+                            <li><a href="{{ path('app_blog')}}">Blog</a></li>
                             <li><a href="">Histoire</a></li>
                             <li><a href="">Contact</a></li>
                         </ul>
@@ -92,11 +96,9 @@
                     <div class="footer_container_top-information-element">
                         <h3>Blog</h3>
                         <ul>
-                            <li><a href="">Remèdes Naturelles</a></li>
-                            <li><a href="">Bien-être</a></li>
-                            <li><a href="">Beauté Naturelle</a></li>
-                            <li><a href="">Santé</a></li>
-                            <li><a href="">Nettoyage écologique</a></li>
+                            {% for category in categories %}
+                                <li><a href="{{ path('app_category', {slug: category.slug}) }}">{{ category.name }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="footer_container_top-information-element">
@@ -112,7 +114,6 @@
                 <div class="footer_container_bottom-reserved">© 2023 Les Trésors Cachés de la Maison- Tous droits réservés.</div>
                 <div class="footer_container_bottom-social-networks">
                     <i class="fa-solid fa-envelope"></i>
-
                 </div>
             </div>
         </footer>

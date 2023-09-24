@@ -6,8 +6,5 @@
         <div class="navbar_dashboard_container_element_item">
             <a href="{{ path('app_user_show', {'id': app.user.id}) }}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_user_show' %}active{% endif %}"><i class="fa-solid fa-user"></i>Mon profil</a>
         </div>   
-        <div class="navbar_dashboard_container_element_item">
-            <a href="" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_user_show' %}active{% endif %}"><i class="fa-solid fa-newspaper"></i>Articles enregistrés</a>
-        </div>   
     </div>
 </div>

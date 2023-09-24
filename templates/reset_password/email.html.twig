@@ -1,0 +1,11 @@
+<h1>Les Trésors Cachés de la Maison - Réinitialisation de votre mot de passe</h1>
+
+<p>Vous avez fait une demande de réinitialisation de votre mot de passe ?</p>
+
+<p>Veuillez cliquer sur ce lien pour réinitialiser votre mot de passe: <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a></p>
+
+<p>Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')|replace({'hour': 'heure'}) }}.</p>
+
+<p>Si vous n'êtes pas à l'origine de cette demande, vous pouvez ignorer cet email.</p>
+
+<p>Toute l'équipe Les Trésors Cachés de la Maison vous remercie</p>

@@ -45,7 +45,7 @@
             <img src="{{ article.author.avatar }}" alt="avatar {{article.author.firstName|capitalize}}">
             <div>
                 <h4>{{article.author.firstName|capitalize}} {{article.author.lastName|capitalize}}</h4>
-                <p>Je suis Dianciré, la créatrice de ce blog dédié à la découverte des trésors cachés de la maison. Passionnée par les remèdes naturels, la beauté maison et l'entretien écologique, je partage ici mes découvertes et astuces pour une vie plus saine et rayonnante. Rejoignez-moi dans l'exploration de ces trésors de la nature, tout en préservant notre environnement.</p>
+                <p>{{ article.author.bio}}</p>
             </div>
         </div>
         <div class="article_show_comments" id="comments">

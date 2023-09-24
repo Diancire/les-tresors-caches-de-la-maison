@@ -7,15 +7,17 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Form\AdminType;
 use App\Form\NewUserType;
+use App\Form\AdminUserType;
 use App\Repository\UserRepository;
-use App\Form\ChangePasswordFormType;
 use App\Repository\CategoryRepository;
+use App\Form\ChangePasswordUserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 #[Route('/admin')]
 class AdminController extends AbstractController
@@ -79,7 +81,7 @@ class AdminController extends AbstractController
     #[Route('/{id}/edit', name: 'app_admin_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(AdminUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -98,7 +100,7 @@ class AdminController extends AbstractController
     #[Route('/{id}/change-password', name: 'app_admin_change_password', methods: ['GET', 'POST'])]
     public function changePassword(Request $request, User $user,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository): Response
     {
-        $form = $this->createForm(ChangePasswordFormType::class);
+        $form = $this->createForm(ChangePasswordUserFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -142,12 +144,14 @@ class AdminController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_admin_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository): Response
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository, TokenStorageInterface $tokenStorage): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
         }
+        $request->getSession()->invalidate();
+        $tokenStorage->setToken(null);
         $this->addFlash('success', "Votre compte a été supprimé avec succès.");
         $categories = $categoryRepository->findAll();
         return $this->redirectToRoute('app_app', [
