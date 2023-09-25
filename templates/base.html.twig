@@ -26,7 +26,7 @@
                     <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
                     {% include 'components/_dropdown_categories.html.twig' with {'categories': categories} %}
                     <li class="navbar_container_element-link"><a href="{{ path('app_history')}}">Histoire</a></li>
-                    <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_contact')}}">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
                     {% endif %}
@@ -59,7 +59,7 @@
                         </li>
                     {% endfor %}
                     <li class="navbar_container_element-link"><a href="{{ path('app_history')}}">Histoire</a></li>
-                    <li class="navbar_container_element-link"><a href="#">Contact</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_contact')}}">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
                     {% endif %}
@@ -90,7 +90,7 @@
                         <ul>
                             <li><a href="{{ path('app_blog')}}">Blog</a></li>
                             <li><a href="{{ path('app_history')}}">Histoire</a></li>
-                            <li><a href="">Contact</a></li>
+                            <li><a href="{{ path('app_contact')}}">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer_container_top-information-element">
