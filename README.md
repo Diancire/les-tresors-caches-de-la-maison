@@ -1,9 +1,6 @@
 
 # Les Trésors Cachés de la Maison
 
-![Les Trésors Cachés de la Maison](favicon_io/android-chrome-512x512.png)
-
-
 Bienvenue sur **Les Trésors Cachés de la Maison**, un blog dédié à l'art de vivre fait maison axé principalement sur les remèdes naturels.
 
 ## Pour commencer
