@@ -1,0 +1,43 @@
+.history_container {
+    margin: 40px 80px;
+    @media #{$breakpoint-md} {
+        margin: 20px 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+}
+
+.history_element, .history_element-reverse {
+    margin-bottom: 80px;
+    display: flex;
+    @media #{$breakpoint-sm} {
+        flex-direction: column;
+        width: auto;
+    }
+    img {
+        max-width: 500px;
+        height: 500px;
+        border-radius: 5px;
+        @media #{$breakpoint-xl} {
+            max-width: 300px;
+            height: auto;
+        }
+        @media #{$breakpoint-md} {
+            max-width: 100%;
+        }
+    }
+}
+
+.history_element-reverse {
+    @media #{$breakpoint-sm} {
+        flex-direction: column-reverse;
+    }
+}
+
+.history_element-text {
+    padding:0 20px;
+}

@@ -21,4 +21,28 @@ class AppController extends AbstractController
             'categories' => $categories
         ]);
     }
+    #[Route('/histoire', name: 'app_history')]
+    public function history(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findAll();
+        return $this->render('app/history.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+    #[Route('/mention-legal', name: 'app_legal_notice')]
+    public function PrivacyPolicy(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findAll();
+        return $this->render('app/legal_notice.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+    #[Route('/politique-confidentialite', name: 'app_privacy_policy')]
+    public function legalNotice(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findAll();
+        return $this->render('app/privacy_policy.html.twig', [
+            'categories' => $categories
+        ]);
+    }
 }

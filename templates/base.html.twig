@@ -25,7 +25,7 @@
                 <ul class="navbar_container_element">
                     <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
                     {% include 'components/_dropdown_categories.html.twig' with {'categories': categories} %}
-                    <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_history')}}">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
@@ -52,13 +52,13 @@
                 </div>
                 <ul class="navbar_dropdown_menu">
                     <li class="navbar_container_element-link"><a href="{{ path('app_app')}}">Accueil</a></li>
-                    <li class="navbar_container_element-link"><a href="#">Blog</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_blog')}}">Blog</a></li>
                     {% for category in categories %}
                         <li class="navbar_container_element-link">
                             <a href="{{ path('app_category', {slug: category.slug}) }}">{{ category.name }}</a>
                         </li>
                     {% endfor %}
-                    <li class="navbar_container_element-link"><a href="#">Histoire</a></li>
+                    <li class="navbar_container_element-link"><a href="{{ path('app_history')}}">Histoire</a></li>
                     <li class="navbar_container_element-link"><a href="#">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="navbar_container_element-link"><a href="{{path('app_admin_index')}}">Dashboard | BackOffice</a></li>
@@ -89,7 +89,7 @@
                         <h3>Accueil</h3>
                         <ul>
                             <li><a href="{{ path('app_blog')}}">Blog</a></li>
-                            <li><a href="">Histoire</a></li>
+                            <li><a href="{{ path('app_history')}}">Histoire</a></li>
                             <li><a href="">Contact</a></li>
                         </ul>
                     </div>
@@ -104,8 +104,8 @@
                     <div class="footer_container_top-information-element">
                         <h3>Information</h3>
                         <ul>
-                            <li><a href="">Mentions légales</a></li>
-                            <li><a href="">Conditions générales d’utilisations</a></li>
+                            <li><a href="{{ path('app_legal_notice')}}">Mentions légales</a></li>
+                            <li><a href="{{ path('app_privacy_policy')}}">Politique de Confidentialité</a></li>
                         </ul>
                     </div>
                 </div>

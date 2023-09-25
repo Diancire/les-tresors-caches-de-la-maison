@@ -1,0 +1,25 @@
+.condidentiality_container {
+    margin: 40px 80px;
+    @media #{$breakpoint-md} {
+        margin: 20px 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+.condidentiality_list {
+    font-size: 16px;
+    @media #{$breakpoint-l} {
+        font-size: 14px;
+    }
+    @media #{$breakpoint-s} {
+        font-size: 12px;
+    }
+}
