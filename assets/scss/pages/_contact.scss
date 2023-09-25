@@ -1,0 +1,27 @@
+.contact_container {
+    margin: 40px 80px;
+    @media #{$breakpoint-md} {
+        margin: 20px 40px;
+    }
+    @media #{$breakpoint-s} {
+        margin: 10px 20px;
+    }
+    @media #{$breakpoint-xs} {
+        margin: 5px 10px;
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        textarea {
+            height: 200px;
+            padding: 10px;
+            font-family: $font-family;
+        }
+    }
+}

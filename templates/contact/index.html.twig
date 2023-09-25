@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - Les Trésors Cachés de la Maison{% endblock %}
+
+{% block body %}
+    <button id="scrollToTopBtn" class="btn-scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="contact_container">
+        <h1>Formulaire de contact</h1>
+        <div>
+            {{ form_start(form) }}
+                <div class="form_container_content-element">
+                    {{ form_label(form.first_name, 'Prénom') }}
+                    {{ form_widget(form.first_name, {
+                        'attr': {
+                            'class': 'form_container_content-element-input'
+                        }
+                    }) }}
+                </div>
+                <div class="form_container_content-element">
+                    {{ form_label(form.last_name, 'Nom') }}
+                    {{ form_widget(form.last_name, {
+                        'attr': {
+                            'class': 'form_container_content-element-input'
+                        }
+                    }) }}
+                </div>
+                <div class="form_container_content-element">
+                    {{ form_label(form.email, 'Email') }}
+                    {{ form_widget(form.email, {
+                        'attr': {
+                            'class': 'form_container_content-element-input'
+                        }
+                    }) }}
+                </div>
+                <div class="form_container_content-element">
+                    {{ form_label(form.subject, 'Sujet') }}
+                    {{ form_widget(form.subject, {
+                        'attr': {
+                            'class': 'form_container_content-element-input'
+                        }
+                    }) }}
+                </div>
+                <div class="form_container_content-element">
+                    {{ form_label(form.message, 'Message') }}
+                    {{ form_widget(form.message, {
+                        'attr': {
+                            'class': 'form_container_content-element-input'
+                        }
+                    }) }}
+                </div>
+                <div class="padding-10">
+                    <button class="btn btn_filled_green text-align-center margin-t-25">Contacter</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
