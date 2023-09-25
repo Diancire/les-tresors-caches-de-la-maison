@@ -5,14 +5,15 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use App\Form\ChangePasswordFormType;
 use App\Repository\CategoryRepository;
+use App\Form\ChangePasswordUserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -75,12 +76,14 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository): Response
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository, TokenStorageInterface $tokenStorage): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
         }
+        $request->getSession()->invalidate();
+        $tokenStorage->setToken(null);
         $this->addFlash('success', "Votre compte a été supprimé avec succès.");
         return $this->redirectToRoute('app_app', [
             'categories' => $categoryRepository->findAll(),
@@ -89,7 +92,7 @@ class UserController extends AbstractController
     #[Route('/{id}/change-password', name: 'app_user_change_password', methods: ['GET', 'POST'])]
     public function changePassword(Request $request, User $user,UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, CategoryRepository $categoryRepository): Response
     {
-        $form = $this->createForm(ChangePasswordFormType::class);
+        $form = $this->createForm(ChangePasswordUserFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

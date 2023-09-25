@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre Histoire - Les Trésors Cachés de la Maison{% endblock %}
+
+{% block body %}
+<button id="scrollToTopBtn" class="btn-scroll-to-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<div class="history_container">
+    <h1>Notre Histoire - Les Trésors Cachés de la Maison</h1>
+
+    <div class="history_element">
+        <img src="{{ asset('img/ampoule-lumineuse.jpg' )}}" alt="ampoule lumineuse dans les mains">
+        <div class="history_element-text">
+            <h2>L'Éclosion d'une Idée</h2>
+            <p>Il était une fois une idée qui germa dans le cœur et l'esprit d'une passionnée de la nature et de la tradition. Cette idée était celle de créer un espace virtuel où les trésors cachés, transmis de génération en génération, pourraient briller de nouveau. Ainsi naquit "Les Trésors Cachés de la Maison", un blog dédié à l'art de vivre fait maison, avec une focalisation bienveillante sur les remèdes naturels. <br>
+            </p>
+            <p>
+            L'instigatrice de ce projet, Dianciré, puisait son inspiration dans les souvenirs de ses grands-parents. Ces sages artisans du quotidien étaient des maîtres dans l'art du fait maison, de la débrouillardise, et de la créativité. Ils avaient une manière unique de transformer des ingrédients simples en remèdes pour la santé, la beauté, et pour entretenir leur maison de manière respectueuse de l'environnement. C'est de cette école de vie que Dianciré décida de s'inspirer.</p>
+        </div>
+    </div>
+    <div class="history_element-reverse">
+        <div class="history_element-text">
+            <h2> Un Trésor de Ressources</h2>
+            <p> Le blog était un véritable trésor de ressources, un puits de connaissances héritées des anciens, et des techniques revisitées pour s'adapter au monde moderne. <br>
+            </p>
+            <p>
+            Que ce soit pour soulager une toux persistante avec une tisane apaisante à base de plantes, préparer une lotion tonique pour la peau à partir d'ingrédients du jardin, ou encore confectionner des produits de nettoyage maison respectueux de l'environnement, "Les Trésors Cachés de la Maison" offrait des réponses naturelles à toutes sortes de besoins.</p>
+        </div>
+        <img src="{{ asset('img/fleurs-sur-livre-ouvert.jpg' )}}" alt="fleurs et tasse sur livre ouvert">
+    </div>
+        <div class="history_element">
+        <img src="{{ asset('img/pot-remede-naturel.jpg' )}}" alt="pot remede naturel">
+        <div class="history_element-text">
+            <h2> Un Retour aux Valeurs Traditionnelles</h2>
+            <p>Le blog n'était pas seulement une source de connaissances, il était aussi un catalyseur du retour aux valeurs traditionnelles. "Les Trésors Cachés de la Maison" incarnait le respect pour la nature, l'appréciation de la simplicité, et le désir de prendre soin de soi et de son environnement. Il inspirait ses lecteurs à embrasser ces valeurs, à renouer avec la sagesse du fait maison, et à partager ce savoir précieux avec les générations futures.<br></p>
+            <p>
+            Ainsi, "Les Trésors Cachés de la Maison" n'était pas seulement un blog, c'était un héritage. Une ode à la créativité et à la sagesse de nos ancêtres, un appel à préserver ces trésors cachés pour les générations à venir. Et à travers ses pages virtuelles, il révélait que les remèdes naturels étaient bien plus que des solutions pratiques, ils étaient un lien profond avec notre passé, un lien vers un avenir plus sain et plus respectueux de la nature. <br></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

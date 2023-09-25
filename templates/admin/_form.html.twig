@@ -24,6 +24,14 @@
         }) }}
     </div>
     <div class="form_container_content-element">
+        {{ form_label(form.bio, 'Bio') }}
+        {{ form_widget(form.bio, {
+            'attr': {
+                'class': 'form_container_content-element-input'
+            }
+        }) }}
+    </div>
+    <div class="form_container_content-element">
         {{ form_label(form.email, 'Email') }}
         {{ form_widget(form.email, {
             'attr': {

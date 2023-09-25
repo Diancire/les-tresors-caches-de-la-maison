@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mention Légale - Les Trésors Cachés de la Maison{% endblock %}
+
+{% block body %}
+<button id="scrollToTopBtn" class="btn-scroll-to-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<div class="condidentiality_container">
+    <h1>Mentions Légales</h1>
+    <p><span class="bold">Nom du site web :</span>Les Trésors Cachés de la Maison</p>
+    <p><span class="bold">URL du site web :</span>Les Trésors Cachés de la Maison</p>
+    <br>
+    <p><span class="bold">Éditeur du site :</span>Dianciré</p>
+    <p><span class="bold">Adresse e-mail :</span>contact@diancirediallo.fr</p>
+    <br>
+    <p><span class="bold">Directeur de la publication :</span></p>
+    <p><span class="bold">Nom :</span>Dianciré</p>
+    <p><span class="bold">Adresse e-mail :</span>contact@diancirediallo.fr</p>
+    <br>
+    <p><span class="bold">Hébergement du site :</span></p>
+    <p><span class="bold">Nom de l'hébergeur :</span>Ionos</p>
+    <br>
+    <p><span class="bold">Propriété intellectuelle :</span></p>
+    <p>Tous les contenus présents sur ce site, incluant, mais sans s'y limiter, les textes, les images, les vidéos, les logos et les graphiques, sont la propriété de Dianciré et sont protégés par les lois sur la propriété intellectuelle en vigueur. Toute utilisation, reproduction ou distribution non autorisée de ces contenus est strictement interdite.</p>
+    <br>
+    <p><span class="bold">Protection des données personnelles :</span></p>
+    <p>Ce site web peut collecter des données personnelles, telles que l'adresse e-mail des utilisateurs qui s'inscrivent à la newsletter. Ces données seront traitées conformément à notre politique de confidentialité, que vous pouvez consulter <a href="{{ path('app_privacy_policy')}}">politique de confidentialité</a>.</p>
+    <br>
+    <p><span class="bold">Cookies :</span></p>
+    <p>Ce site web n'utilise pas de cookies pour améliorer l'expérience de l'utilisateur.</p>
+    <br>
+    <p><span class="bold">Loi applicable :</span></p>
+    <p>Ce site web est soumis à la loi française. Tout litige découlant de l'utilisation de ce site web sera soumis à la juridiction exclusive des tribunaux français.</p>
+    <br>
+    <p><span class="bold">Contact :</span></p>
+    <p>Pour toute question ou préoccupation concernant ces mentions légales, veuillez nous contacter à l'adresse suivante : contact@diancirediallo.fr.</p>
+
+</div>
+
+{% endblock %}
