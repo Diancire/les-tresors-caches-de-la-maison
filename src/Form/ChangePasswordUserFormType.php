@@ -37,7 +37,7 @@ class ChangePasswordUserFormType extends AbstractType
                         'message' => 'Ce champ ne peut pas être vide.',
                     ]),
                     new Length([
-                        'min' => 8,
+                        'min' => 12,
                         'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,

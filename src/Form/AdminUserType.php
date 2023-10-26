@@ -25,13 +25,9 @@ class AdminUserType extends AbstractType
                     ]),
                 ]
             ])
-            // ->add('roles')
-            // ->add('password')
             ->add('nickname')
             ->add('first_name')
             ->add('last_name')
-            // ->add('create_at')
-            // ->add('avatar')
             ->add('bio')
         ;
     }

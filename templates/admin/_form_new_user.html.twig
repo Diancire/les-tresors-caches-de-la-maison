@@ -44,7 +44,7 @@
         {{ form_widget(form.password, {
             }) }}
         <div class="form_container_content-validation-mdp">
-            <p>Votre mot de passe doit contenir 8 caractères minimum:</p>
+            <p>Votre mot de passe doit contenir 12 caractères minimum:</p>
             <ul>
                 <li>Une lettre majuscule</li>
                 <li>Une lettre minuscule</li>
@@ -56,15 +56,6 @@
             {{ form_errors(form.password) }}
         </div>
     </div>
-    {# <div class="form_container_content-element">
-        <div class="">
-            {{ form_label(form.roles, 'Roles') }}
-            <div class="roles">
-                {{ form_widget(form.roles, {
-                    }) }}
-            </div>
-        </div>
-    </div> #}
     <div class="dashboard_btn_container">
         <button class="btn btn_filled_green text-align-center">{{ button_label|default('Créer') }}</button>
     </div>

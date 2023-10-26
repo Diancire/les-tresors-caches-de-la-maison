@@ -30,14 +30,6 @@ class NewUserType extends AbstractType
                     ]),
                 ]
             ])
-            // ->add('roles', ChoiceType::class, [
-            //     'choices' => [
-            //         'User' => 'ROLE_USER',
-            //         'Admin' => 'ROLE_ADMIN',
-            //     ],
-            //     'expanded' => true,
-            //     'multiple' => true,
-            // ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => '', 
@@ -58,7 +50,7 @@ class NewUserType extends AbstractType
                         'message' => 'Ce champ ne peut pas être vide.',
                     ]),
                     new Length([
-                        'min' => 8,
+                        'min' => 12,
                         'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,

@@ -22,12 +22,9 @@ class AdminType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
-            // ->add('password')
             ->add('nickname')
             ->add('first_name')
             ->add('last_name')
-            // ->add('create_at')
-            // ->add('avatar')
         ;
     }
 

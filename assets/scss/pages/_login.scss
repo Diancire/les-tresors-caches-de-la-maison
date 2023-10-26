@@ -23,11 +23,17 @@
 .login_container_form-email{
     display: flex;
     flex-direction: column;
+    label {
+        padding-bottom: 10px;
+    }
 }
 
 .login_container_form-label-password-container {
     display: flex;
     flex-direction: column;
+    label {
+        padding-bottom: 10px;
+    }
 }
 .login_container_form-label-password-link {
     color: $primary-color-golden;

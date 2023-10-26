@@ -1,6 +1,9 @@
 .like {
     margin: 10px 0;
-    .filled {
-        color: $red;
+    i {
+        padding-right: 5px;
+    }
+    span {
+        padding: 0 5px;
     }
 }
