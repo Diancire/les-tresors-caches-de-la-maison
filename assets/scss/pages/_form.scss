@@ -24,6 +24,18 @@
     display: flex;
     flex-direction: column;
     margin: 0 30px;
+    label {
+        padding-bottom: 10px;
+    }
+}
+
+.form_container_content-element-agreeTerms {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    label {
+        padding-left: 10px;
+    }
 }
 
 .form_container_content-element-input {

@@ -32,7 +32,7 @@
                             {% include "components/_like.html.twig" %}
                             <div class="display-flex">
                                 <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
-                                <div class="padding-x-10"><i class="fa-solid fa-comment"></i> {{ article.comments|length }}</div>
+                                <div class="padding-x-10"><i class="fa-solid fa-comment padding-x-5"></i> {{ article.comments|length }}</div>
                             </div>
                             <p>{{article.content|u.truncate(160, '...')|raw}}</p>
                             <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken">Lire plus</a>
@@ -57,7 +57,7 @@
                 {% include "components/_like.html.twig" %}
                 <div class="display-flex">
                     <p>Date: {{article.createdAt|date('d/m/Y')}}</p>
-                    <div class="padding-x-10"><i class="fa-solid fa-comment"></i> {{ article.comments|length }}</div>
+                    <div class="padding-x-10"><i class="fa-solid fa-comment padding-x-5"></i> {{ article.comments|length }}</div>
                 </div>
                 <p>{{article.content|u.truncate(160, '...')|raw}}</p>
                 <a href="{{ path('app_blog_show', {slug: article.slug})}}" class="link-golden-darken link_read_more">Lire plus</a>

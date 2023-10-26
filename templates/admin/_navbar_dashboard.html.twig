@@ -9,9 +9,6 @@
         <div class="navbar_dashboard_container_element_item">
             <a href="{{ path('app_admin_index_user')}}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_index_user' %}active{% endif %}"><i class="fa-solid fa-users"></i>Utilisateurs</a>
         </div>   
-        {# <div class="navbar_dashboard_container_element_item">
-            <a href="{{ path('app_admin_article_new')}}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_article_new' %}active{% endif %}"><i class="fa-regular fa-note-sticky"></i>Créer un article</a>
-        </div>    #}
         <div class="navbar_dashboard_container_element_item">
             <a href="{{ path('app_admin_article_index')}}" class="navbar_dashboard_container_element_item-link {% if app.request.attributes.get('_route') == 'app_admin_article_index' %}active{% endif %}"><i class="fa-solid fa-newspaper"></i>Articles</a>
         </div>   

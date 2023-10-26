@@ -4,7 +4,7 @@
 	{% endif %}
             <i class="fa-solid fa-thumbs-up filled {{ app.user in article.likes ? '' : 'hidden' }}"></i>
             <i class="fa-regular fa-thumbs-up unfilled  {{ app.user in article.likes ? 'hidden' : '' }}"></i>
-			<span >{{ article.likes|length }}J'aime</span>
+			<span >{{ article.likes|length }}  J'aime</span>
 	{% if app.user %}
 		</a>
 	{% endif %}

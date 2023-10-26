@@ -56,7 +56,7 @@
             {{ form_widget(registrationForm.plainPassword, {
                 }) }}
             <div class="form_container_content-validation-mdp">
-                <p>Votre mot de passe doit contenir 8 caractères minimum:</p>
+                <p>Votre mot de passe doit contenir 12 caractères minimum:</p>
                 <ul>
                     <li>Une lettre majuscule</li>
                     <li>Une lettre minuscule</li>
@@ -66,6 +66,13 @@
             </div>
             <div class="form_container_content-error">
                 {{ form_errors(registrationForm.plainPassword) }}
+            </div>
+        </div>
+        <div class="form_container_content-element-agreeTerms">
+            {{ form_label(registrationForm.agreeTerms, 'Acceptation des conditions légales') }}
+            {{ form_widget(registrationForm.agreeTerms) }}
+            <div class="form_container_content-error">
+                {{ form_errors(registrationForm.agreeTerms) }}
             </div>
         </div>
         <div class="button-container">

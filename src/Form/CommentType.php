@@ -23,9 +23,6 @@ class CommentType extends AbstractType
                     new NotBlank()
                 ]
             ])
-            // ->add('created_at')
-            // ->add('author')
-            // ->add('article')
         ;
     }
 

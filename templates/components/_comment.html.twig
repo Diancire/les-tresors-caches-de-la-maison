@@ -9,7 +9,6 @@
     <p>{{comment.content}}</p>
     {% if app.user == comment.author %}
         <form method="post" action="{{ path('app_comment_delete', {'id': comment.id}) }}" name="comment_delete" onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer votre commentaire ?');" class="form_comment_delete">
-            {# <input type="hidden" name="_method" value="DELETE"> #}
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
             <button type="submit">
                 <i class="fas fa-trash-alt color-red"></i>
